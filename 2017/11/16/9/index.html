@@ -25,24 +25,27 @@
     
     
     
-    <title>闭包现象 | sanpang</title>
+    <title>Vue2.0基础-vue-cli搭建项目 | sanpang</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="在一个函数内部，有权访问另一个函数中的变量（并且能够随时访问）！尽量不要去看长篇大论关于闭包的解释，很容易把自己绕晕。看一些很容易理解的例子帮助你更好的理解闭包才是最好的！  闭包 一 : 访问变量局限性大，不能自由访问。 12345678unction show1() &amp;#123;         var a = 10;        function show2() &amp;#123;">
+    <meta name="description" content="一、什么是webpack？webpack是一个module bundler（模块打包工具），其可以兼容各种js书写规范，且可以处理模块间的依赖关系，具有更强大的js模块化的功能。Webpack对它们进行统一的管理以及打包发布，其官方主页用下面这张图来说明Webbpack的作用。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="闭包现象">
-<meta property="og:url" content="http://yoursite.com/2018/04/09/2/index.html">
+<meta property="og:title" content="Vue2.0基础-vue-cli搭建项目">
+<meta property="og:url" content="http://yoursite.com/2017/11/16/9/index.html">
 <meta property="og:site_name" content="sanpang">
-<meta property="og:description" content="在一个函数内部，有权访问另一个函数中的变量（并且能够随时访问）！尽量不要去看长篇大论关于闭包的解释，很容易把自己绕晕。看一些很容易理解的例子帮助你更好的理解闭包才是最好的！  闭包 一 : 访问变量局限性大，不能自由访问。 12345678unction show1() &amp;#123;         var a = 10;        function show2() &amp;#123;">
+<meta property="og:description" content="一、什么是webpack？webpack是一个module bundler（模块打包工具），其可以兼容各种js书写规范，且可以处理模块间的依赖关系，具有更强大的js模块化的功能。Webpack对它们进行统一的管理以及打包发布，其官方主页用下面这张图来说明Webbpack的作用。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-09T06:00:00.861Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5877364-40e456a61a5eb489.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5877364-66da45407ca3ce0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-11-16T02:12:17.316Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="闭包现象">
-<meta name="twitter:description" content="在一个函数内部，有权访问另一个函数中的变量（并且能够随时访问）！尽量不要去看长篇大论关于闭包的解释，很容易把自己绕晕。看一些很容易理解的例子帮助你更好的理解闭包才是最好的！  闭包 一 : 访问变量局限性大，不能自由访问。 12345678unction show1() &amp;#123;         var a = 10;        function show2() &amp;#123;">
+<meta name="twitter:title" content="Vue2.0基础-vue-cli搭建项目">
+<meta name="twitter:description" content="一、什么是webpack？webpack是一个module bundler（模块打包工具），其可以兼容各种js书写规范，且可以处理模块间的依赖关系，具有更强大的js模块化的功能。Webpack对它们进行统一的管理以及打包发布，其官方主页用下面这张图来说明Webbpack的作用。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5877364-40e456a61a5eb489.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -135,7 +138,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">闭包现象</div>
+        <div class="flex-col header-title ellipsis">Vue2.0基础-vue-cli搭建项目</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -157,11 +160,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">闭包现象</h1>
+        <h1 class="title">Vue2.0基础-vue-cli搭建项目</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-04-09T05:43:53.498Z" itemprop="datePublished" class="page-time">
-  2018-04-09
+                <time datetime="2017-11-16T02:02:27.466Z" itemprop="datePublished" class="page-time">
+  2017-11-16
 </time>
 
 
@@ -180,17 +183,17 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#闭包-一-访问变量局限性大，不能自由访问。"><span class="post-toc-number">1.</span> <span class="post-toc-text">闭包 一 : 访问变量局限性大，不能自由访问。</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#闭包-二-可以自由访问。"><span class="post-toc-number">2.</span> <span class="post-toc-text">闭包 二 : 可以自由访问。</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#常见闭包一般出现在DOM节点操作中，看下面典型例子！"><span class="post-toc-number">3.</span> <span class="post-toc-text">常见闭包一般出现在DOM节点操作中，看下面典型例子！</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、什么是webpack？"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、什么是webpack？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、使用vue-cli搭建开发环境"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、使用vue-cli搭建开发环境</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1安装Nodejs"><span class="post-toc-number">2.0.1.</span> <span class="post-toc-text">2.1安装Nodejs</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2在全局安装Vue-cli"><span class="post-toc-number">2.0.2.</span> <span class="post-toc-text">2.2在全局安装Vue-cli</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3构建项目"><span class="post-toc-number">2.0.3.</span> <span class="post-toc-text">2.3构建项目</span></a></li></ol></li></ol></li></ol>
         </nav>
     </aside>
     
-<article id="post-2"
+<article id="post-9"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">闭包现象</h1>
+        <h1 class="post-card-title">Vue2.0基础-vue-cli搭建项目</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-04-09 13:43:53" datetime="2018-04-09T05:43:53.498Z"  itemprop="datePublished">2018-04-09</time>
+            <time class="post-time" title="2017-11-16 10:02:27" datetime="2017-11-16T02:02:27.466Z"  itemprop="datePublished">2017-11-16</time>
 
             
 
@@ -203,16 +206,34 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <blockquote>
-<p>在一个函数内部，有权访问另一个函数中的变量（并且能够随时访问）！<br>尽量不要去看长篇大论关于闭包的解释，很容易把自己绕晕。看一些很容易理解的例子帮助你更好的理解闭包才是最好的！</p>
-</blockquote>
-<h5 id="闭包-一-访问变量局限性大，不能自由访问。"><a href="#闭包-一-访问变量局限性大，不能自由访问。" class="headerlink" title="闭包 一 : 访问变量局限性大，不能自由访问。"></a>闭包 一 : 访问变量局限性大，不能自由访问。</h5><hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">unction show1() &#123;</span><br><span class="line">         var a = 10;</span><br><span class="line">        function show2() &#123;</span><br><span class="line">           console.log(a)</span><br><span class="line">         &#125;</span><br><span class="line">  show2();</span><br><span class="line">&#125;</span><br><span class="line">show1();</span><br></pre></td></tr></table></figure>
-<h5 id="闭包-二-可以自由访问。"><a href="#闭包-二-可以自由访问。" class="headerlink" title="闭包 二 : 可以自由访问。"></a>闭包 二 : 可以自由访问。</h5><hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function show() &#123;</span><br><span class="line">         var a = 10;</span><br><span class="line">          return:  function() &#123;</span><br><span class="line">           console.log(a)</span><br><span class="line">         &#125;</span><br><span class="line">&#125;</span><br><span class="line">show()();</span><br></pre></td></tr></table></figure>
-<h5 id="常见闭包一般出现在DOM节点操作中，看下面典型例子！"><a href="#常见闭包一般出现在DOM节点操作中，看下面典型例子！" class="headerlink" title="常见闭包一般出现在DOM节点操作中，看下面典型例子！"></a>常见闭包一般出现在DOM节点操作中，看下面典型例子！</h5><hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">为每一个li添加点击事件，并且弹出他所在ul中的位置。</span><br><span class="line"></span><br><span class="line">&lt;ul id=&quot;list&quot;&gt;</span><br><span class="line">    &lt;li&gt;aaa&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;aaa&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;aaa&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">var  lis=document.getElementById(&quot;list&quot;).getElementsByTagName(&quot;li&quot;);</span><br><span class="line">for(var i=0;i&lt;lis.length;i++)&#123;</span><br><span class="line">   lis[i]._index=i;//为每个li添加一个属性并且保存他的所在的位置。</span><br><span class="line">   lis[i].onclick=function()&#123;</span><br><span class="line">          alert(i)//无论你点那个，弹出的都是3!</span><br><span class="line">         alert(this._index);//可以弹出相应的位置!this指你事件触发者.即你点击的 li !</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
+            <h1 id="一、什么是webpack？"><a href="#一、什么是webpack？" class="headerlink" title="一、什么是webpack？"></a>一、什么是webpack？</h1><p>webpack是一个module bundler（模块打包工具），其可以兼容各种js书写规范，且可以处理模块间的依赖关系，具有更强大的js模块化的功能。Webpack对它们进行统一的管理以及打包发布，其官方主页用下面这张图来说明Webbpack的作用。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/5877364-40e456a61a5eb489.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="what-is-webpack.png" title="">
+                </div>
+                <div class="image-caption">what-is-webpack.png</div>
+            </figure>
+<p>在讲课的时候讲解过webpack，并且从零开始使用了webpack搭建了一个工作流，在这里就不啰嗦讲解了。</p>
+<h1 id="二、使用vue-cli搭建开发环境"><a href="#二、使用vue-cli搭建开发环境" class="headerlink" title="二、使用vue-cli搭建开发环境"></a>二、使用vue-cli搭建开发环境</h1><p>在使用Vue-cli之前，需要安装Nodejs环境和Vue-cli工具。</p>
+<h3 id="2-1安装Nodejs"><a href="#2-1安装Nodejs" class="headerlink" title="2.1安装Nodejs"></a>2.1安装Nodejs</h3><p>在<a href="www.nodejs.org">www.nodejs.org</a>网站下载相应的Nodejs版本，或者使用<strong>NVM</strong>来管理Nodejs。</p>
+<h3 id="2-2在全局安装Vue-cli"><a href="#2-2在全局安装Vue-cli" class="headerlink" title="2.2在全局安装Vue-cli"></a>2.2在全局安装Vue-cli</h3><pre><code>npm install -g vue-cli
+</code></pre><h3 id="2-3构建项目"><a href="#2-3构建项目" class="headerlink" title="2.3构建项目"></a>2.3构建项目</h3><pre><code>1. vue init webpack my_prj
+</code></pre><p>其中webpack是模板名称，my_prj是自定义的项目名称，命令执行之后，会在当前目录生成一个以该名称命名的项目文件夹。</p>
+<pre><code>2.cd my_prj
+</code></pre><p>使用cd命令切换到相应的文件目录中</p>
+<pre><code>3.cnpm install
+</code></pre><p>使用cnpm install为整个工程安装依赖包。这里咱们使用的是cnpm，防止下载资源的时候下载不了，因为cnpm是阿里的一个下载工具。</p>
+<pre><code>4.使用npm run dev启动工程
+</code></pre><p>因为在package.json中使用了<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/5877364-66da45407ca3ce0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2017-05-11_130127.png" title="">
+                </div>
+                <div class="image-caption">2017-05-11_130127.png</div>
+            </figure></p>
+<pre><code>5.打包上线
+</code></pre><p>自己编写的代码都放在src文件夹下，项目开发完成之后，可以输入npm run build来进行打包工作。</p>
 
         </div>
 
@@ -220,7 +241,7 @@
     <div class="content">
         
 <span class="post-time">
-    post.last_updated<time datetime="2018-04-09T06:00:00.861Z" itemprop="dateUpdated">2018-04-09 14:00:00</time>
+    post.last_updated<time datetime="2017-11-16T02:12:17.316Z" itemprop="dateUpdated">2017-11-16 10:12:17</time>
 </span><br>
 
 
@@ -249,7 +270,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/04/09/2/&title=《闭包现象》 — sanpang&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/11/16/9/&title=《Vue2.0基础-vue-cli搭建项目》 — sanpang&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -259,22 +280,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/04/09/2/&title=《闭包现象》 — sanpang&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/11/16/9/&title=《Vue2.0基础-vue-cli搭建项目》 — sanpang&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/09/2/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/16/9/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《闭包现象》 — sanpang&url=http://yoursite.com/2018/04/09/2/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Vue2.0基础-vue-cli搭建项目》 — sanpang&url=http://yoursite.com/2017/11/16/9/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/09/2/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/16/9/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -297,18 +318,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2018/04/11/3/" id="post-prev" class="post-nav-link">
+      <a href="/2017/11/22/10/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">【ES6系列】变量与块级作用域</h4>
+        <h4 class="title">web前端面试宝典-基础篇(一)</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/04/08/hello-world/" id="post-next" class="post-nav-link">
+      <a href="/2017/11/12/8/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">在服务器上搭建hexo博客</h4>
+        <h4 class="title">Vue2.0基础-生命周期（二）</h4>
       </a>
     </div>
   
@@ -390,7 +411,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/04/09/2/&title=《闭包现象》 — sanpang&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/11/16/9/&title=《Vue2.0基础-vue-cli搭建项目》 — sanpang&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -400,22 +421,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/04/09/2/&title=《闭包现象》 — sanpang&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/11/16/9/&title=《Vue2.0基础-vue-cli搭建项目》 — sanpang&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/09/2/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/16/9/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《闭包现象》 — sanpang&url=http://yoursite.com/2018/04/09/2/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Vue2.0基础-vue-cli搭建项目》 — sanpang&url=http://yoursite.com/2017/11/16/9/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/09/2/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/16/9/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -426,7 +447,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/04/09/2/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2017/11/16/9/" alt="微信分享二维码">
 </div>
 
 

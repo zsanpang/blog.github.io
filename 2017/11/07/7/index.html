@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=true"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?true"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>vue2.0基础-简介(一) | sanpang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="一、 Vue.js是什么？Vue.js（读音 /vjuː/，类似于 view） 是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，它不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与单文件组件和 Vue 生态系统支持的库结合使用时，Vue 也完全能够为复杂的单页应用程序提供驱动。 二、 Vue.js有什么特性？Vu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue2.0基础-简介(一)">
+<meta property="og:url" content="http://yoursite.com/2017/11/07/7/index.html">
+<meta property="og:site_name" content="sanpang">
+<meta property="og:description" content="一、 Vue.js是什么？Vue.js（读音 /vjuː/，类似于 view） 是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，它不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与单文件组件和 Vue 生态系统支持的库结合使用时，Vue 也完全能够为复杂的单页应用程序提供驱动。 二、 Vue.js有什么特性？Vu">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2017-11-16T02:08:36.934Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue2.0基础-简介(一)">
+<meta name="twitter:description" content="一、 Vue.js是什么？Vue.js（读音 /vjuː/，类似于 view） 是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，它不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与单文件组件和 Vue 生态系统支持的库结合使用时，Vue 也完全能够为复杂的单页应用程序提供驱动。 二、 Vue.js有什么特性？Vu">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">sanpang</h5>
+          <a href="mailto:1353600706@qq.com" title="1353600706@qq.com" class="mail">1353600706@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://fp.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://djweb.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://web.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                Link
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">vue2.0基础-简介(一)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="global.search_input_hint">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">vue2.0基础-简介(一)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-07T01:01:50.895Z" itemprop="datePublished" class="page-time">
+  2017-11-07
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、-Vue-js是什么？"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、 Vue.js是什么？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、-Vue-js有什么特性？"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、 Vue.js有什么特性？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、Vue-js和Angularjs和React-js有什么区别"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、Vue.js和Angularjs和React.js有什么区别?</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-1-前端这几年的发展迅速，主要可以从四个方面进行划分。"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">3.1 前端这几年的发展迅速，主要可以从四个方面进行划分。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-2-就开发框架这块，Angular-1-amp-2-React-Vue目前占据着主流地位而且会相持比较长的一段时间，所以这里对比一下这三门技术，以便之后的技术选型。"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">3.2 就开发框架这块，Angular(1&amp;2),React,Vue目前占据着主流地位而且会相持比较长的一段时间，所以这里对比一下这三门技术，以便之后的技术选型。</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四、为什么要学习Vue-js"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、为什么要学习Vue.js?</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-7"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">vue2.0基础-简介(一)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-07 09:01:50" datetime="2017-11-07T01:01:50.895Z"  itemprop="datePublished">2017-11-07</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="一、-Vue-js是什么？"><a href="#一、-Vue-js是什么？" class="headerlink" title="一、 Vue.js是什么？"></a>一、 Vue.js是什么？</h3><p>Vue.js（读音 /vjuː/，类似于 view） 是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，它不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与单文件组件和 Vue 生态系统支持的库结合使用时，Vue 也完全能够为复杂的单页应用程序提供驱动。</p>
+<h3 id="二、-Vue-js有什么特性？"><a href="#二、-Vue-js有什么特性？" class="headerlink" title="二、 Vue.js有什么特性？"></a>二、 Vue.js有什么特性？</h3><p>Vue.js的特性主要有以下几个方面:</p>
+<p>1.简洁性</p>
+<p>2.轻量级</p>
+<p>3.快速高效</p>
+<p>4.数据驱动</p>
+<p>5.模块友好</p>
+<p>6.组件化</p>
+<h3 id="三、Vue-js和Angularjs和React-js有什么区别"><a href="#三、Vue-js和Angularjs和React-js有什么区别" class="headerlink" title="三、Vue.js和Angularjs和React.js有什么区别?"></a>三、Vue.js和Angularjs和React.js有什么区别?</h3><h4 id="3-1-前端这几年的发展迅速，主要可以从四个方面进行划分。"><a href="#3-1-前端这几年的发展迅速，主要可以从四个方面进行划分。" class="headerlink" title="3.1 前端这几年的发展迅速，主要可以从四个方面进行划分。"></a>3.1 前端这几年的发展迅速，主要可以从四个方面进行划分。</h4><p>1.开发语言</p>
+<p>目前最牛逼最火爆的还是JavaScript这门老不死的语言，但是随着技术的发展，也有很多的语言涌现出来。比如coffeeScript、typeScript、Dart等等…</p>
+<p>2.开发框架</p>
+<p>目前企业中用的最多的也不好说,但是肯定的是在2016年中最火爆的前端框架就是Vue.js。还有其他的一些框架比如: 一个千年王者(jQuery),Angular.js1.x,Angularjs2.x,React.js等等…</p>
+<p>3.开发工具的丰富和前端工程化</p>
+<p>比如Grunt，Gulp，Webpack，npm，eslint，mocha这些技术</p>
+<p>4.前端开发范围的扩展</p>
+<p>如服务端的nodejs,express,koa,meteor,GraphQL;移动端和跨平台的PhoneGap,ionic,ReactNative，Weex;计算机图形学和3维建模领域的WebGL(three.js等)；可视化与数据分析领域的d3.js等；包括浏览器不断开放的更多新特性和接口比如svg,canvas,蓝牙，电池，本地存储，service worker，Houdini等新的API能力，以及像WASM这样的底层优化技术；</p>
+<h4 id="3-2-就开发框架这块，Angular-1-amp-2-React-Vue目前占据着主流地位而且会相持比较长的一段时间，所以这里对比一下这三门技术，以便之后的技术选型。"><a href="#3-2-就开发框架这块，Angular-1-amp-2-React-Vue目前占据着主流地位而且会相持比较长的一段时间，所以这里对比一下这三门技术，以便之后的技术选型。" class="headerlink" title="3.2 就开发框架这块，Angular(1&amp;2),React,Vue目前占据着主流地位而且会相持比较长的一段时间，所以这里对比一下这三门技术，以便之后的技术选型。"></a>3.2 就开发框架这块，Angular(1&amp;2),React,Vue目前占据着主流地位而且会相持比较长的一段时间，所以这里对比一下这三门技术，以便之后的技术选型。</h4><p>1.数据流</p>
+<p>Angular.js和Vue.js都实现了双向数据绑定的功能，而React.js推崇的是单向数据流。Vue.js对于Angular.js有更好的性能，并且非常非常容易优化。</p>
+<p>2.视图渲染</p>
+<p>React.js采用了Virtual DOM的机制，但是也是需要进行优化的，Vue.js不使用Virtual DOM而使用真实的DOM作为模板，数据绑定到真实的节点。Vue.js有时性能会比React.js好很多，而且几乎不用手工优化。</p>
+<p>3.性能与优化</p>
+<p>性能方面，这几个主流框架都应该可以轻松应付大部分常见场景的性能需求，区别在于可优化性和优化对于开发体验的影响。Vue 的话需要加好 track-by 。React 需要 shouldComponentUpdate 或者全面 Immutable，Angular 2 需要手动指定 change detection strategy。从整体趋势上来说，浏览器和手机还会越变越快，框架本身的渲染性能在整个前端性能优化体系中，会渐渐淡化，更多的优化点还是在构建方式、缓存、图片加载、网络链路、HTTP/2 等方面。</p>
+<p>4.模块化与组件化</p>
+<p>Vue.js结合了Angular.js1.x中的双向数据绑定，同时又结合了的React.js中的组件化思想，指令和组件分得更加清晰。</p>
+<h3 id="四、为什么要学习Vue-js"><a href="#四、为什么要学习Vue-js" class="headerlink" title="四、为什么要学习Vue.js?"></a>四、为什么要学习Vue.js?</h3><p>它能让团队书写用js更容易并且简化了js。上手Vue.js是相当容易的。它的源码有着很高的可读性，如果你需要仅用他的文档便可入门。你不必使用任何额外的库。如果需要可以和jQuery协同工作。他有许多的插件，但并非必须。我个人很喜欢优雅的Vue.js。用Vue.js配合已存在代码是十分简单的。</p>
+<p>最最最重要的是它的作者是中国的，中国的，中国的。(尤雨溪，目前就职于阿里巴巴weex团队)</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    post.last_updated<time datetime="2017-11-16T02:08:36.934Z" itemprop="dateUpdated">2017-11-16 10:08:36</time>
+</span><br>
+
+
+        
+        以上言论 如有不足 多多原谅！
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="sanpang">
+            sanpang
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/11/07/7/&title=《vue2.0基础-简介(一)》 — sanpang&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/11/07/7/&title=《vue2.0基础-简介(一)》 — sanpang&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/07/7/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vue2.0基础-简介(一)》 — sanpang&url=http://yoursite.com/2017/11/07/7/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/07/7/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/12/8/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Vue2.0基础-生命周期（二）</h4>
+      </a>
+    </div>
+  
+
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'true';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+<section class="comments" id="comments">
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script src="http://v2.uyan.cc/code/uyan.js?uid=true"></script>
+    <!-- UY END -->
+</section>
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>footer.license</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>sanpang &copy; 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/11/07/7/&title=《vue2.0基础-简介(一)》 — sanpang&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/11/07/7/&title=《vue2.0基础-简介(一)》 — sanpang&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/07/7/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vue2.0基础-简介(一)》 — sanpang&url=http://yoursite.com/2017/11/07/7/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/07/7/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2017/11/07/7/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=true&web_id=true')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=true"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?true"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>web前端面试宝典-基础篇(一) | sanpang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="其实感觉前端的面试就是一些零碎的知识点，最后上升为架构而已。这篇博客我也会将架构设计融入其中。大致通过以下几个分类进行分析:   HTML/CSS部分 JavaScript部分 数据结构部分（算法） 框架之Angular.js 框架之Vue.js 框架之React.js 移动端 HTTP WEB安全 WEB渗透之Kali Linux 前端性能 设计模式 正则表达式 前端架构设计  一、HTML/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="web前端面试宝典-基础篇(一)">
+<meta property="og:url" content="http://yoursite.com/2017/11/22/10/index.html">
+<meta property="og:site_name" content="sanpang">
+<meta property="og:description" content="其实感觉前端的面试就是一些零碎的知识点，最后上升为架构而已。这篇博客我也会将架构设计融入其中。大致通过以下几个分类进行分析:   HTML/CSS部分 JavaScript部分 数据结构部分（算法） 框架之Angular.js 框架之Vue.js 框架之React.js 移动端 HTTP WEB安全 WEB渗透之Kali Linux 前端性能 设计模式 正则表达式 前端架构设计  一、HTML/">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5877364-8017700b7e38d8ce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5877364-37e11593ff77de11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5877364-8de28b7b5b9ef113.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5877364-186066a578872396.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-11-28T02:17:57.164Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="web前端面试宝典-基础篇(一)">
+<meta name="twitter:description" content="其实感觉前端的面试就是一些零碎的知识点，最后上升为架构而已。这篇博客我也会将架构设计融入其中。大致通过以下几个分类进行分析:   HTML/CSS部分 JavaScript部分 数据结构部分（算法） 框架之Angular.js 框架之Vue.js 框架之React.js 移动端 HTTP WEB安全 WEB渗透之Kali Linux 前端性能 设计模式 正则表达式 前端架构设计  一、HTML/">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5877364-8017700b7e38d8ce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">sanpang</h5>
+          <a href="mailto:1353600706@qq.com" title="1353600706@qq.com" class="mail">1353600706@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://fp.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://djweb.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://web.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                Link
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">web前端面试宝典-基础篇(一)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="global.search_input_hint">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">web前端面试宝典-基础篇(一)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-22T02:14:22.563Z" itemprop="datePublished" class="page-time">
+  2017-11-22
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、HTML-CSS部分"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、HTML/CSS部分</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-什么是盒子模型？"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.1 什么是盒子模型？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-什么是css-Hack？"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1.2 什么是css Hack？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-什么是同步？异步？"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">1.3 什么是同步？异步？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-1-同步和异步"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">1.3.1 同步和异步</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-2-阻塞与非阻塞"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">1.3.2 阻塞与非阻塞</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-4-px和rem和em的区别？"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">1.4 px和rem和em的区别？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-5-浏览器的内核分别是什么"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">1.5 浏览器的内核分别是什么?</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-6-清除浮动的影响的方法？"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">1.6 清除浮动的影响的方法？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-7-margin折叠现象"><span class="post-toc-number">1.5.2.</span> <span class="post-toc-text">1.7 margin折叠现象?</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、JavaScript部分"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、JavaScript部分</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-如何快速合并两个数组？"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">2.1 如何快速合并两个数组？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-1-先使用代码来对比（concat函数与Array-prototype-push-apply）"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">2.1.1. 先使用代码来对比（concat函数与Array.prototype.push.apply）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-2-Array-prototype-concat-apply-和-concat对比"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">2.1.2 Array.prototype.concat.apply 和 concat对比</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-3-Array-prototype-concat-call-和-concat对比"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">2.1.3 Array.prototype.concat.call 和 concat对比</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-说说你对原型链的理解？"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2.2 说说你对原型链的理解？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-说说你对js中面向对象编程的理解？"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">2.3 说说你对js中面向对象编程的理解？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-JavaScript（ES5）中封装、多态、继承的实现方式"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">2.4 JavaScript（ES5）中封装、多态、继承的实现方式?</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-1-JavaScript实现封装"><span class="post-toc-number">2.4.1.</span> <span class="post-toc-text">2.4.1 JavaScript实现封装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#→原始模式"><span class="post-toc-number">2.4.1.1.</span> <span class="post-toc-text">→原始模式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#→简单工厂模式"><span class="post-toc-number">2.4.1.2.</span> <span class="post-toc-text">→简单工厂模式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#→构造函数模式"><span class="post-toc-number">2.4.1.3.</span> <span class="post-toc-text">→构造函数模式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#→原型模式"><span class="post-toc-number">2.4.1.4.</span> <span class="post-toc-text">→原型模式</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-2-JavaScript中继承的实现"><span class="post-toc-number">2.4.2.</span> <span class="post-toc-text">2.4.2 JavaScript中继承的实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#→原型继承"><span class="post-toc-number">2.4.2.1.</span> <span class="post-toc-text">→原型继承</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#→构造函数实现继承"><span class="post-toc-number">2.4.2.2.</span> <span class="post-toc-text">→构造函数实现继承</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#→组合模式实现继承"><span class="post-toc-number">2.4.2.3.</span> <span class="post-toc-text">→组合模式实现继承</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-3-JavaScript中重载的实现"><span class="post-toc-number">2.4.3.</span> <span class="post-toc-text">2.4.3 JavaScript中重载的实现</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-10"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">web前端面试宝典-基础篇(一)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-22 10:14:22" datetime="2017-11-22T02:14:22.563Z"  itemprop="datePublished">2017-11-22</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>其实感觉前端的面试就是一些零碎的知识点，最后上升为架构而已。这篇博客我也会将<strong><em>架构设计</em></strong>融入其中。大致通过以下几个分类进行分析:</p>
+</blockquote>
+<ul>
+<li>HTML/CSS部分</li>
+<li>JavaScript部分</li>
+<li>数据结构部分（算法）</li>
+<li>框架之Angular.js</li>
+<li>框架之Vue.js</li>
+<li>框架之React.js</li>
+<li>移动端</li>
+<li>HTTP</li>
+<li>WEB安全</li>
+<li>WEB渗透之Kali Linux</li>
+<li>前端性能</li>
+<li>设计模式</li>
+<li>正则表达式</li>
+<li>前端架构设计</li>
+</ul>
+<h1 id="一、HTML-CSS部分"><a href="#一、HTML-CSS部分" class="headerlink" title="一、HTML/CSS部分"></a>一、HTML/CSS部分</h1><h2 id="1-1-什么是盒子模型？"><a href="#1-1-什么是盒子模型？" class="headerlink" title="1.1 什么是盒子模型？"></a>1.1 什么是盒子模型？</h2><p>在网页中，一个元素占有空间的大小由几个部分构成，其中包括元素的内容（<strong><em>content</em></strong>），元素的内边距（<strong><em>padding</em></strong>），元素的边框（<strong><em>border</em></strong>），元素的外边距（<strong><em>margin</em></strong>）四个部分。这四个部分占有的空间中，有的部分可以显示相应的内容，而有的部分只用来分隔相邻的区域或区域。4个部分一起构成了css中元素的盒模型。</p>
+<h2 id="1-2-什么是css-Hack？"><a href="#1-2-什么是css-Hack？" class="headerlink" title="1.2 什么是css Hack？"></a>1.2 什么是css Hack？</h2><p>一般来说，css Hack就是针对不同的浏览器写不同css样式。css hack一般来说是为了兼容IE浏览器的。<br>IE浏览器Hack一般又分为三种: <strong><em>条件Hack</em></strong>、<strong><em>属性Hack</em></strong>、<strong><em>选择器Hack</em></strong>。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 1.条件Hack</span><br><span class="line">&lt;!--[if IE]&gt;</span><br><span class="line"><span class="code">    &lt;style&gt;</span></span><br><span class="line"><span class="code">        .test &#123;color:red;&#125;</span></span><br><span class="line"><span class="code">    &lt;/style&gt;</span></span><br><span class="line">&lt;![endif]--&gt;</span><br><span class="line"></span><br><span class="line">// 2.属性Hack</span><br><span class="line">.test &#123;</span><br><span class="line"><span class="code">    color: #090\9; /* For IE8+ */</span></span><br><span class="line"><span class="code">    *color: #f00;  /* For IE7 and earlier */</span></span><br><span class="line"><span class="code">    _color: #ff0;  /* For IE6 and earlier */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 3.选择器Hack</span><br><span class="line">*html .test&#123;</span><br><span class="line"><span class="code">    color: #090; /* For IE6 and earlier */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">*+html .test &#123;</span><br><span class="line"><span class="code">    color: #ff0; /* For IE7 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="1-3-什么是同步？异步？"><a href="#1-3-什么是同步？异步？" class="headerlink" title="1.3 什么是同步？异步？"></a>1.3 什么是同步？异步？</h2><p>当我在学习前端的时候，看到这个问题的时候，让不不禁想起了学习Linux时，一直想的一个问题。<strong><em>什么是异步，同步？什么是阻塞，非阻塞</em></strong>当时这个问题困惑了我很久，一直搞不清楚有什么区别，异步不就是非阻塞吗，同步不就是阻塞吗？下面咱们就唠唠嗑来说说这里面的玄机。在这里咱们主要来以网络I/O为例:</p>
+<h3 id="1-3-1-同步和异步"><a href="#1-3-1-同步和异步" class="headerlink" title="1.3.1 同步和异步"></a>1.3.1 同步和异步</h3><pre><code>实际上同步与异步是针对***应用程序***与***内核***的交互而言的。同步过程中进程触发IO操作并等待或者轮询的去查看IO操作是否完成。异步过程中进程触发IO操作后，直接返回，做自己的事情，IO交给内核来处理，完成后内核通知进程IO完成。
+</code></pre><p>（这里大家不禁要问了，什么是IO，如果你是做后端开发的，IO对于你来说很容易理解，但是纯做前端的话就不容易理解了。IO就是input/output，输入输出。比如文件的读写操作，网络的请求和得到数据的操作等等。不懂的童鞋要去学习<strong><em>操作系统</em></strong>了）<br>直接上图吧:</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5877364-8017700b7e38d8ce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="同步与异步.png"></p>
+<h3 id="1-3-2-阻塞与非阻塞"><a href="#1-3-2-阻塞与非阻塞" class="headerlink" title="1.3.2 阻塞与非阻塞"></a>1.3.2 阻塞与非阻塞</h3><pre><code>简单理解为需要做一件事情能不能立即得到返回应答。如果不能立刻获得返回，需要等待，那就阻塞了，否则就可以理解为非阻塞。详细区别如下图所示:
+</code></pre><p><img src="http://upload-images.jianshu.io/upload_images/5877364-37e11593ff77de11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="阻塞与非阻塞.png"></p>
+<blockquote>
+<p>需要注意了, 这里的立即返回，是针对内核来说的。就是说这个应用程序的某些代码会不会阻塞内核（CPU）的执行。而同步异步是针对于应用程序来说的，到底某些代码会不会影响下面代码的执行。</p>
+</blockquote>
+<h2 id="1-4-px和rem和em的区别？"><a href="#1-4-px和rem和em的区别？" class="headerlink" title="1.4 px和rem和em的区别？"></a>1.4 px和rem和em的区别？</h2><p>px和rem和em都是长度单位, 区别是px的值是固定的，指定是多少就是多少，计算比较容易。em的值不是固定的，它的值是继承父级元素的字体大小(其实也不能说是父级，应该说是自身，如果自身没有设置font-size, 则去找父级，然后父级没设置，在往上找，如果没有找到，就是浏览器默认的字体)。下面举例说明:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 1. em的案列 */</span></span><br><span class="line"><span class="selector-class">.test</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">20px</span>;  <span class="comment">/* 这句话声明之后就代表了1em = 20px;但是后面的代码与这个没有关系 */</span></span><br><span class="line">  <span class="attribute">text-indent</span>: <span class="number">2em</span>;  <span class="comment">/* 单位转换之后2em = 40px */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 2.rem的案列 -- rem是根据html的font-size大小定的，一般用于移动端网站开发时使用，进行屏幕适配。*/</span></span><br><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">40px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.test</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1rem</span>; <span class="comment">/* 单位转换后为40px */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="1-5-浏览器的内核分别是什么"><a href="#1-5-浏览器的内核分别是什么" class="headerlink" title="1.5 浏览器的内核分别是什么?"></a>1.5 浏览器的内核分别是什么?</h2><p>IE: trident内核<br>Firefox: gecko内核<br>Safari: webkit内核<br>Opera: 以前是presto内核，Opera现已改用Google Chrome的Blink内核。<br>Chrome: Blink(基于Webkit内核，google和Opera公同开发)</p>
+<h3 id="1-6-清除浮动的影响的方法？"><a href="#1-6-清除浮动的影响的方法？" class="headerlink" title="1.6 清除浮动的影响的方法？"></a>1.6 清除浮动的影响的方法？</h3><p>  这个问题之前一直说一直说，没有时间去总结。咱们从下面几种方式进行探究。</p>
+<ul>
+<li><p>1.空的div方式(不是特别好，如果清除浮动地方多了，就会有多个空标签)</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 在要清除浮动的地方加上&lt;div class="clearfix"&gt;&lt;/div&gt; */</span></span><br><span class="line"><span class="selector-class">.clearfix</span> &#123;</span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2.使用overflow方式进行清除浮动带来的影响。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">   /* 想要使用overflow清除浮动带来的影响，一般分为两步骤：</span><br><span class="line">       1. 给它加一个父元素</span><br><span class="line">       2. 在父元素上写overflow: hidden;</span><br><span class="line">   */</span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"overflow:hidden;"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span></span><br><span class="line">			</span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3.使用伪元素的方式进行清除浮动带来的影响。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">/* 这里说明一下，一般使用这种方式也是需要给它加一个父元素的... */</span></span><br><span class="line">   <span class="selector-class">.test</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">	 <span class="attribute">content</span>:<span class="string">""</span>;        </span><br><span class="line">     <span class="attribute">display</span>:block;        </span><br><span class="line">     <span class="attribute">height</span>:<span class="number">0</span>;        </span><br><span class="line">     <span class="attribute">clear</span>:both;        </span><br><span class="line">     <span class="comment">/* visibility:hidden;    */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="1-7-margin折叠现象"><a href="#1-7-margin折叠现象" class="headerlink" title="1.7 margin折叠现象?"></a>1.7 margin折叠现象?</h3><p>要想解释这个现象，还是要了解BFC的。这里的我就不啰嗦了，就直接说一下解决方案了。（我经常使用的方案, 其他方案自行百度）<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 这个很简单和上一个题目一样</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">在父层加上<span class="selector-tag">overflow</span><span class="selector-pseudo">:hidden</span>;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>其他CSS的问题待续吧(CSS3动画、渐进、Canvas、SVG等等先忽略)，特别是less、sass、stylus等预处理语言，面试中也是常问的重点。</p>
+</blockquote>
+<h1 id="二、JavaScript部分"><a href="#二、JavaScript部分" class="headerlink" title="二、JavaScript部分"></a>二、JavaScript部分</h1><blockquote>
+<p>这一部分涉及的内容就多了，那么我会从ES5和ES6都会讲解到。<br>先列个目录</p>
+</blockquote>
+<h2 id="2-1-如何快速合并两个数组？"><a href="#2-1-如何快速合并两个数组？" class="headerlink" title="2.1 如何快速合并两个数组？"></a>2.1 如何快速合并两个数组？</h2><blockquote>
+<p>这个问题看起来很简单，实则没有那么简单。给大家提几个问题，合并数组什么方式最好也就是说性能最佳？合并之后用不用去重？等等都需要考虑。网上给出了push和concat的对比。(温馨提示:如果不懂call和apply的童鞋，自行学习。)</p>
+</blockquote>
+<h3 id="2-1-1-先使用代码来对比（concat函数与Array-prototype-push-apply）"><a href="#2-1-1-先使用代码来对比（concat函数与Array-prototype-push-apply）" class="headerlink" title="2.1.1. 先使用代码来对比（concat函数与Array.prototype.push.apply）"></a>2.1.1. 先使用代码来对比（concat函数与Array.prototype.push.apply）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testClass</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="keyword">var</span> testArray1 = [];</span><br><span class="line">     <span class="keyword">var</span> testArray2 = [];</span><br><span class="line">     <span class="keyword">this</span>.resetArray = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">         <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">100000</span>; i++) &#123;</span><br><span class="line">             testArray1.push(i);</span><br><span class="line">             testArray2.push(i + <span class="number">100000</span>);</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">this</span>.applyTest = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">         <span class="keyword">var</span> startTime = <span class="number">0</span>,</span><br><span class="line">             endTime = <span class="number">0</span>;</span><br><span class="line">         <span class="built_in">console</span>.log(<span class="string">'开始合并的时间是：'</span> + (startTime = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime()));</span><br><span class="line">         <span class="keyword">var</span> aa = <span class="built_in">Array</span>.prototype.push.apply(testArray1, testArray2);</span><br><span class="line">         <span class="built_in">console</span>.log(aa);</span><br><span class="line">         <span class="built_in">console</span>.log(<span class="string">'合并完成的时间是：'</span> + (endTime = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime()));</span><br><span class="line">         <span class="built_in">console</span>.log(<span class="string">'合并数组所用的时间是：'</span> + (endTime - startTime));</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">this</span>.concatTest = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">         <span class="keyword">var</span> startTime = <span class="number">0</span>,</span><br><span class="line">             endTime = <span class="number">0</span>;</span><br><span class="line">         <span class="built_in">console</span>.log(<span class="string">'开始合并的时间是：'</span> + (startTime = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime()));</span><br><span class="line">         <span class="keyword">var</span> aa = testArray1.concat(testArray2);</span><br><span class="line">         <span class="built_in">console</span>.log(aa.length);</span><br><span class="line">         <span class="built_in">console</span>.log(<span class="string">'合并完成的时间是：'</span> + (endTime = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime()));</span><br><span class="line">         <span class="built_in">console</span>.log(<span class="string">'合并数组所用的时间是：'</span> + (endTime - startTime));</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> apply = <span class="keyword">new</span> testClass();</span><br><span class="line"> apply.resetArray();</span><br><span class="line"> apply.applyTest();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> concat = <span class="keyword">new</span> testClass();</span><br><span class="line"> concat.resetArray();</span><br><span class="line"> concat.concatTest();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>通过测试结果可知:<br>使用Array.prototype.push.apply 方式性能非常低下，在20w的数据下，执行时间将近是concat方法的<strong><em>11-17</em></strong>倍左右。</p>
+</blockquote>
+<h3 id="2-1-2-Array-prototype-concat-apply-和-concat对比"><a href="#2-1-2-Array-prototype-concat-apply-和-concat对比" class="headerlink" title="2.1.2 Array.prototype.concat.apply 和 concat对比"></a>2.1.2 Array.prototype.concat.apply 和 concat对比</h3><p>很多程序员喜欢直接使用Array构造函数下的原型对象上的方法，以此缩短搜索函数的时间，这种方式是否能够带来性能的提升？<br>在这里只需要将第一个函数中的代码改成<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> aa = <span class="built_in">Array</span>.prototype.concat.apply(testArray1, testArray2);</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>根据测试的结果，使用Array.prototype.concat.apply的方式还是比直接使用concat函数慢些。之前我也没有注意过，这次测试，我感觉问题大了。难道之前想错了，经过又一轮的测试，证明了我的猜测。下一轮的对比您应该想到了，就是call和apply的性能。(这个对比大家自行研究，结论就是call的性能在chrome浏览上明显比apply性能要高很多)</p>
+</blockquote>
+<h3 id="2-1-3-Array-prototype-concat-call-和-concat对比"><a href="#2-1-3-Array-prototype-concat-call-和-concat对比" class="headerlink" title="2.1.3 Array.prototype.concat.call 和 concat对比"></a>2.1.3 Array.prototype.concat.call 和 concat对比</h3><p>将第一个函数中的代码改成如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> aa = <span class="built_in">Array</span>.prototype.concat.call(testArray1, testArray2);</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>最后的测试结果验证使用Array.prototype.concat.call比直接使用concat方法性能提升了一倍。因此最后的得出的结论就是数据合并性能最高的方式就是使用<strong><em>Array.prototype.concat.call</em></strong>。<br>各位兄弟姐妹，这只是我自己的测试结果，如果有出入，欢迎指正。至于去重的算法及其性能优化放到算法一节说吧。</p>
+</blockquote>
+<h2 id="2-2-说说你对原型链的理解？"><a href="#2-2-说说你对原型链的理解？" class="headerlink" title="2.2 说说你对原型链的理解？"></a>2.2 说说你对原型链的理解？</h2><p>这个问题也是相当有点难度的问题。首先要搞清楚什么是原型对象、什么是构造函数、什么是实例化对象。如果和我一样都清楚的童鞋，您只需看图即可。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5877364-8de28b7b5b9ef113.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="数组对象原型链 .png"></p>
+<blockquote>
+<p>这张图表明了如果数组实例化之后，它原型的整个指向。还有一种情况就是当实例化对象时，采用var a = {}或者new Object();它的指向如下:</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/5877364-186066a578872396.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Obj.png"></p>
+<h2 id="2-3-说说你对js中面向对象编程的理解？"><a href="#2-3-说说你对js中面向对象编程的理解？" class="headerlink" title="2.3 说说你对js中面向对象编程的理解？"></a>2.3 说说你对js中面向对象编程的理解？</h2><p>在没有学习面向对象编程的时候，大家更多的是函数(就是一些功能性代码的集合)，而面向对象的思想是从另外一个角度出发来解决函数的局限性。它把对象作为程序的基本单元，其实对象就是对事物的一种抽象描述。<br>人们发现，现实世界中的事物，都可以用「数据」和「能力」来描述。比如我要描述一个人，「数据」就是他的年龄、性别、身高体重，「能力」就是他能做什么工作，承担什么样的责任。描述一台电视，「数据」就是它的屏幕尺寸、亮度，「能力」就是播放《葫芦娃》。</p>
+<p>面向对象的世界里，到处都是对象。对象不光有「数据」和「能力」，还可以接受命令。例如你可以让「狗」这个对象「吃狗粮」，就可以把「吃狗粮」的命令发给「狗」让其执行，然后我们就实现了「狗吃狗粮」的需求。</p>
+<p>现在对象有了，如何进行面向对象的编程呢?很简单，依次向不同的对象发送命令就可以了。比如产品经理说要把大象装进冰箱里，用面向对象来实现，我们会先定义一个「冰箱」对象，它的「数据」就是当前的冷冻温度，或者该冰箱已经有了多少头大象，「能力」就是开门、关门。还有一个「大象」对象，它的「数据」可以是大象的智商、体积，「能力」就是「自己跑到冰箱里去」。然后我们依次：</p>
+<p>向冰箱下达「开门」的命令。</p>
+<p>向大象下达「进冰箱」的命令。</p>
+<p>向冰箱下达「关门」的命令。</p>
+<p>大家好好理解一下就可以整明白，当然还有其他的编程思想。比如<strong><em>面向接口、面向切面</em></strong>都是常用编程思想。（具体到后面再讲解吧）</p>
+<h2 id="2-4-JavaScript（ES5）中封装、多态、继承的实现方式"><a href="#2-4-JavaScript（ES5）中封装、多态、继承的实现方式" class="headerlink" title="2.4 JavaScript（ES5）中封装、多态、继承的实现方式?"></a>2.4 JavaScript（ES5）中封装、多态、继承的实现方式?</h2><h3 id="2-4-1-JavaScript实现封装"><a href="#2-4-1-JavaScript实现封装" class="headerlink" title="2.4.1 JavaScript实现封装"></a>2.4.1 JavaScript实现封装</h3><h4 id="→原始模式"><a href="#→原始模式" class="headerlink" title="→原始模式"></a>→原始模式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cat = &#123;</span><br><span class="line">    name: <span class="string">''</span>,</span><br><span class="line">    color: <span class="string">''</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这种方式缺点是: 1.如果生成的对象很多就会很麻烦。2.不能看出实例之间的联系</p>
+</blockquote>
+<h4 id="→简单工厂模式"><a href="#→简单工厂模式" class="headerlink" title="→简单工厂模式"></a>→简单工厂模式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">name, color</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">    obj.name = name;</span><br><span class="line">    obj.color = color;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cat1 = Cat(<span class="string">"金毛"</span>, <span class="string">"黄色"</span>);</span><br><span class="line"><span class="keyword">var</span> cat2 = Cat(<span class="string">"泰迪"</span>, <span class="string">"棕色"</span>);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这种方式可以解决代码重复的问题，但是依然不能反映出实例对象之间的关系。</p>
+</blockquote>
+<h4 id="→构造函数模式"><a href="#→构造函数模式" class="headerlink" title="→构造函数模式"></a>→构造函数模式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">name, color</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.color = color;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> cat1 = <span class="keyword">new</span> Cat(<span class="string">"金毛"</span>, <span class="string">"黄色"</span>);</span><br><span class="line"><span class="keyword">var</span> cat2 = <span class="keyword">new</span> Cat(<span class="string">"泰迪"</span>, <span class="string">"棕色"</span>);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>构造函数的方式确实好用，但是存在一个浪费内存的问题。所以就要使用原型模式。</p>
+</blockquote>
+<h4 id="→原型模式"><a href="#→原型模式" class="headerlink" title="→原型模式"></a>→原型模式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">name, color</span>)</span>&#123;</span><br><span class="line">　　　　<span class="keyword">this</span>.name = name;</span><br><span class="line">　　　　<span class="keyword">this</span>.color = color;</span><br><span class="line">　　&#125;</span><br><span class="line">　　Cat.prototype.type = <span class="string">"猫科动物"</span>;</span><br><span class="line">　　Cat.prototype.eat = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;alert(<span class="string">"吃老鼠"</span>)&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>还有等等一些模式进行封装，大家自行去查询即可。</p>
+</blockquote>
+<h3 id="2-4-2-JavaScript中继承的实现"><a href="#2-4-2-JavaScript中继承的实现" class="headerlink" title="2.4.2 JavaScript中继承的实现"></a>2.4.2 JavaScript中继承的实现</h3><h4 id="→原型继承"><a href="#→原型继承" class="headerlink" title="→原型继承"></a>→原型继承</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 基类</span></span><br><span class="line"><span class="keyword">var</span> Person = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'张三'</span>;</span><br><span class="line">    <span class="keyword">this</span>.age = <span class="number">20</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Person.prototype = &#123;</span><br><span class="line">    say: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Person.prototype'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 子类</span></span><br><span class="line"><span class="keyword">var</span> Student = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这样就可以继承了Person里面的所有的方法。</span></span><br><span class="line">Student.prototype = <span class="keyword">new</span> Person();</span><br><span class="line">Student.prototype.getTeacher = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Student.prototype.getTeacher'</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这种继承存在一些问题，就是无法通过参数定义对象。</p>
+</blockquote>
+<h4 id="→构造函数实现继承"><a href="#→构造函数实现继承" class="headerlink" title="→构造函数实现继承"></a>→构造函数实现继承</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.race = <span class="string">'人类'</span>;</span><br><span class="line">&#125;</span><br><span class="line">   Person.prototype=&#123;</span><br><span class="line">       eat:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">           alert(<span class="string">'123'</span>)</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;;</span><br><span class="line"></span><br><span class="line">   <span class="comment">/*学生对象*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name, skin</span>) </span>&#123;</span><br><span class="line">	<span class="comment">// People(), </span></span><br><span class="line">	Person.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">	<span class="keyword">this</span>.skin = skin;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>构造函数这种方式的继承利用apply这个方法改变this的指针来完成继承的。</p>
+</blockquote>
+<h4 id="→组合模式实现继承"><a href="#→组合模式实现继承" class="headerlink" title="→组合模式实现继承"></a>→组合模式实现继承</h4><blockquote>
+<p>组合模式就是将上述的原型继承和构造函数继承的组合。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age</span>) </span>&#123;&#125;</span><br><span class="line">Person.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name, age, no</span>) </span>&#123;</span><br><span class="line">	<span class="comment">/*会自动调用Person的方法，同时将name age传递过去*/</span></span><br><span class="line">	Person.call(<span class="keyword">this</span>, name, age);</span><br><span class="line">	<span class="comment">//自己的属性</span></span><br><span class="line">	<span class="keyword">this</span>.no = no;</span><br><span class="line">&#125;</span><br><span class="line">Student.prototype = <span class="keyword">new</span> Person();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>通过这种方式进行继承会更加完善。至于其他的继承方式在这就不一一列举了，比如寄生虫组合继承、拷贝继承等等。</p>
+</blockquote>
+<h3 id="2-4-3-JavaScript中重载的实现"><a href="#2-4-3-JavaScript中重载的实现" class="headerlink" title="2.4.3 JavaScript中重载的实现"></a>2.4.3 JavaScript中重载的实现</h3><blockquote>
+<p>这里只说一种方式实现重载（根据arguments个数）</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> sum = <span class="number">0</span> ;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="number">0</span> ; i &lt; <span class="built_in">arguments</span>.length; i ++ ) &#123;</span><br><span class="line">        sum += <span class="built_in">arguments</span>[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line">alert(add());</span><br><span class="line">alert(add( <span class="number">1</span> , <span class="number">2</span> ));</span><br><span class="line">alert(add( <span class="number">1</span> , <span class="number">2</span> , <span class="number">3</span> ));</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>内容太多了，请移步web前端面试宝典-基础篇(二)<br>有问题请联系QQ:136062834，一直感觉良好的攻城狮。</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    post.last_updated<time datetime="2017-11-28T02:17:57.164Z" itemprop="dateUpdated">2017-11-28 10:17:57</time>
+</span><br>
+
+
+        
+        以上言论 如有不足 多多原谅！
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="sanpang">
+            sanpang
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/11/22/10/&title=《web前端面试宝典-基础篇(一)》 — sanpang&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/11/22/10/&title=《web前端面试宝典-基础篇(一)》 — sanpang&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/22/10/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《web前端面试宝典-基础篇(一)》 — sanpang&url=http://yoursite.com/2017/11/22/10/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/22/10/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/28/11/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">web前端面试宝典-基础篇(二)</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/16/9/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Vue2.0基础-vue-cli搭建项目</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'true';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+<section class="comments" id="comments">
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script src="http://v2.uyan.cc/code/uyan.js?uid=true"></script>
+    <!-- UY END -->
+</section>
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>footer.license</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>sanpang &copy; 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/11/22/10/&title=《web前端面试宝典-基础篇(一)》 — sanpang&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/11/22/10/&title=《web前端面试宝典-基础篇(一)》 — sanpang&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/22/10/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《web前端面试宝典-基础篇(一)》 — sanpang&url=http://yoursite.com/2017/11/22/10/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/22/10/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2017/11/22/10/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=true&web_id=true')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

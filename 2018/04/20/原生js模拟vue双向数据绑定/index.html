@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=true"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?true"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>原生JS模拟Vue双向数据绑定 | sanpang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="童鞋们都应该知道Vue2.x很重要的特性（数据双向绑定、虚拟DOM），所以在面试的时候就经常有面试官问小白同学说数据双向绑定原理是什么，虚拟DOM是什么，给我实现一个呗。所以给大家展示一个最简的双向绑定的案例，也参考了网上一些资料。至于虚拟DOM的实现后面再说吧，网上资料也很多很全因为毕竟react都出来好久了。（都知道网上资料一大堆，大都不着调。）直接上代码！！！  index.html 123">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原生JS模拟Vue双向数据绑定">
+<meta property="og:url" content="http://yoursite.com/2018/04/20/原生js模拟vue双向数据绑定/index.html">
+<meta property="og:site_name" content="sanpang">
+<meta property="og:description" content="童鞋们都应该知道Vue2.x很重要的特性（数据双向绑定、虚拟DOM），所以在面试的时候就经常有面试官问小白同学说数据双向绑定原理是什么，虚拟DOM是什么，给我实现一个呗。所以给大家展示一个最简的双向绑定的案例，也参考了网上一些资料。至于虚拟DOM的实现后面再说吧，网上资料也很多很全因为毕竟react都出来好久了。（都知道网上资料一大堆，大都不着调。）直接上代码！！！  index.html 123">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5877364-78fb46d67049feb2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-04-20T00:52:15.293Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="原生JS模拟Vue双向数据绑定">
+<meta name="twitter:description" content="童鞋们都应该知道Vue2.x很重要的特性（数据双向绑定、虚拟DOM），所以在面试的时候就经常有面试官问小白同学说数据双向绑定原理是什么，虚拟DOM是什么，给我实现一个呗。所以给大家展示一个最简的双向绑定的案例，也参考了网上一些资料。至于虚拟DOM的实现后面再说吧，网上资料也很多很全因为毕竟react都出来好久了。（都知道网上资料一大堆，大都不着调。）直接上代码！！！  index.html 123">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/5877364-78fb46d67049feb2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">sanpang</h5>
+          <a href="mailto:1353600706@qq.com" title="1353600706@qq.com" class="mail">1353600706@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://fp.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://djweb.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://web.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                Link
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">原生JS模拟Vue双向数据绑定</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="global.search_input_hint">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">原生JS模拟Vue双向数据绑定</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-04-20T00:52:13.066Z" itemprop="datePublished" class="page-time">
+  2018-04-20
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-原生js模拟vue双向数据绑定"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">原生JS模拟Vue双向数据绑定</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-04-20 08:52:13" datetime="2018-04-20T00:52:13.066Z"  itemprop="datePublished">2018-04-20</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>童鞋们都应该知道Vue2.x很重要的特性（数据双向绑定、虚拟DOM），所以在面试的时候就经常有面试官问小白同学说数据双向绑定原理是什么，虚拟DOM是什么，给我实现一个呗。所以给大家展示一个最简的双向绑定的案例，也参考了网上一些资料。至于虚拟DOM的实现后面再说吧，网上资料也很多很全因为毕竟react都出来好久了。（都知道网上资料一大堆，大都不着调。）直接上代码！！！</p>
+<ul>
+<li><p>index.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"msg"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"mvvm/watcher.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"mvvm/observer.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"mvvm/compile.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"mvvm/index.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">		<span class="keyword">let</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">			el: <span class="string">"app"</span>,</span></span><br><span class="line"><span class="undefined">			data: &#123;</span></span><br><span class="line"><span class="javascript">				msg: <span class="string">'hello world'</span></span></span><br><span class="line"><span class="undefined">			&#125;</span></span><br><span class="line"><span class="undefined">		&#125;)</span></span><br><span class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>index.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这个文件为入口文件，也就是Vue的构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Vue</span>(<span class="params">options</span>) </span>&#123;</span><br><span class="line">	<span class="comment">// 传递过来的对象</span></span><br><span class="line">	<span class="keyword">this</span>.data = options.data;</span><br><span class="line">	<span class="keyword">this</span>.id = options.el;</span><br><span class="line">	<span class="comment">// 1.第一步先将data中所有的数据进行监听</span></span><br><span class="line">	<span class="comment">//   这个函数一般使用递归的方式完成所有属性的监听</span></span><br><span class="line">	observer(<span class="keyword">this</span>.data, <span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 2.第二步将所有DOM节点的翻译出来，也就是说将v-model，</span></span><br><span class="line">	<span class="comment">//  &#123;&#123;&#125;&#125;等翻译成你想要的数据。其次还有将v-model的数据进行监听，使用观察者模式，完成双向绑定</span></span><br><span class="line">	getAllNode(<span class="built_in">document</span>.getElementById(<span class="keyword">this</span>.id), <span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>observer.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个pubsub,这个作用是将所有的观察者加入其中，</span></span><br><span class="line"><span class="comment">// 并且出发事件</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">pubsub</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.subs = [];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">pubsub.prototype = &#123;</span><br><span class="line">	<span class="comment">// 将需要观察的数据加入subs中</span></span><br><span class="line">	addSub: <span class="function"><span class="keyword">function</span>(<span class="params">sub</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.subs.push(sub);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 执行观察的数据上绑定的事件update事件。</span></span><br><span class="line">    pub: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    	<span class="built_in">console</span>.log(<span class="keyword">this</span>.subs);</span><br><span class="line">        <span class="keyword">this</span>.subs.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">sub</span>)</span>&#123;</span><br><span class="line">            sub.update();</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将数据都进行监听</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">active</span>(<span class="params">obj, key, val</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> pubsub1 = <span class="keyword">new</span> pubsub();</span><br><span class="line">	<span class="built_in">Object</span>.defineProperty(obj.data, key, &#123;</span><br><span class="line">		<span class="comment">// getter，如果获取数据时，会判断是有需要观察的数据，如果有就添加到subs中，没有不添加</span></span><br><span class="line">		<span class="comment">// Pubsub是一个全局的变量，这个变量必须是全局才能判断是有需要观察的数据</span></span><br><span class="line">		get() &#123;</span><br><span class="line">			<span class="keyword">if</span>(Pubsub.target) &#123;</span><br><span class="line">				<span class="comment">// 添加订阅</span></span><br><span class="line">				pubsub1.addSub(Pubsub.target);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> val;</span><br><span class="line">		&#125;,</span><br><span class="line">		set(newVal) &#123;</span><br><span class="line">			<span class="comment">// 如果数据被setter，那么就涉及到及时的更新数据，</span></span><br><span class="line">			<span class="comment">// 这时只需要进行发布事件，观察的数据就会执行update函数来执行更新操作</span></span><br><span class="line">			<span class="keyword">if</span>(val == newVal) &#123;</span><br><span class="line">				<span class="keyword">return</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			val = newVal;</span><br><span class="line"></span><br><span class="line">			<span class="comment">// 发布</span></span><br><span class="line">			pubsub1.pub();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 监听data中所有的数据</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">observer</span>(<span class="params">obj, vm</span>) </span>&#123;</span><br><span class="line">	<span class="comment">// obj = data</span></span><br><span class="line">	<span class="comment">// vm  = 实例对象</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">		active(vm, key, obj[key]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>comiple.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取到所有节点，并且进行翻译</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAllNode</span>(<span class="params">node, vm</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(vm);</span><br><span class="line">	<span class="keyword">var</span> length = node.childNodes.length;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">		compile(node.childNodes[i], vm)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 翻译</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compile</span>(<span class="params">node, vm</span>) </span>&#123;</span><br><span class="line">	<span class="comment">// 匹配到&#123;&#123;&#125;&#125;,将其中的值进行观察。</span></span><br><span class="line">	<span class="keyword">var</span> reg = <span class="regexp">/\&#123;\&#123;(.*)\&#125;\&#125;/</span>;</span><br><span class="line">	<span class="comment">// 如果节点存在并且节点类型为1时（查看一下为1时一般都是什么节点）</span></span><br><span class="line">	<span class="keyword">if</span>(node!=<span class="literal">undefined</span> &amp;&amp; node.nodeType == <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="comment">// 获取到节点的属性</span></span><br><span class="line">		<span class="keyword">var</span> attr = node.attributes;</span><br><span class="line">		<span class="keyword">if</span>(attr.length) &#123;</span><br><span class="line">			<span class="comment">// 对节点的属性循环处理</span></span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; attr.length; i++) &#123;</span><br><span class="line">				<span class="comment">// 如果为v-model时，进行处理</span></span><br><span class="line">				<span class="keyword">if</span>(attr[i].nodeName == <span class="string">"v-model"</span>) &#123;</span><br><span class="line">					<span class="comment">// 获取到v-model里面的写的变量名</span></span><br><span class="line">					<span class="keyword">var</span> name = attr[i].nodeValue;</span><br><span class="line">					<span class="comment">// 给该input增加事件处理，如果内容改变，并及时更新data中的数据</span></span><br><span class="line">					node.addEventListener(<span class="string">'input'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">						vm.data[name] = e.target.value;</span><br><span class="line">					&#125;)</span><br><span class="line"></span><br><span class="line">					<span class="comment">// 修改dom上的数据，并移除指令</span></span><br><span class="line">					<span class="built_in">console</span>.log(vm.data[name]);</span><br><span class="line">					node.value = vm.data[name];</span><br><span class="line">					node.removeAttribute(<span class="string">'v-model'</span>)</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="comment">// 匹配到&#123;&#123;&#125;&#125;的dom节点</span></span><br><span class="line">			<span class="keyword">if</span>(reg.test(node.outerText)) &#123;</span><br><span class="line">				<span class="keyword">var</span> name = <span class="built_in">RegExp</span>.$<span class="number">1</span>;</span><br><span class="line">				<span class="comment">// 拿到变量的名称</span></span><br><span class="line">				name = name.trim();</span><br><span class="line"></span><br><span class="line">				<span class="comment">// 将变量加入到watcher中</span></span><br><span class="line">				<span class="keyword">new</span> Watcher(vm, node, name)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>watcher.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 全局的变量，这个变量来控制是否当前有观察的数据</span></span><br><span class="line"><span class="keyword">var</span> Pubsub = &#123;</span><br><span class="line">	target: <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 观察者定义</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Watcher</span>(<span class="params">vm, node, name</span>) </span>&#123;</span><br><span class="line">	Pubsub.target = <span class="keyword">this</span>;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">	<span class="keyword">this</span>.node = node;</span><br><span class="line">	<span class="keyword">this</span>.vm = vm;</span><br><span class="line">	<span class="comment">// 将数据观察时就要进行更新操作一次</span></span><br><span class="line">	<span class="keyword">this</span>.update();</span><br><span class="line">	Pubsub.target = <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Watcher.prototype = &#123;</span><br><span class="line">	<span class="comment">// 将更新的数据渲染到页面中去</span></span><br><span class="line">	update() &#123;</span><br><span class="line">		<span class="keyword">this</span>.node.innerHTML = <span class="keyword">this</span>.vm.data[<span class="keyword">this</span>.name];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>大家想测试，就将五个文件的代码复制下来，运行一下。<br>运行的同时给大家配一张图，让大家容易理解。（这张是盗图，不知哪位大神用visio画的，这里我就直接引用了）<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/5877364-78fb46d67049feb2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="原理图.png" title="">
+                </div>
+                <div class="image-caption">原理图.png</div>
+            </figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    post.last_updated<time datetime="2018-04-20T00:52:15.293Z" itemprop="dateUpdated">2018-04-20 08:52:15</time>
+</span><br>
+
+
+        
+        以上言论 如有不足 多多原谅！
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="sanpang">
+            sanpang
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/04/20/原生js模拟vue双向数据绑定/&title=《原生JS模拟Vue双向数据绑定》 — sanpang&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/04/20/原生js模拟vue双向数据绑定/&title=《原生JS模拟Vue双向数据绑定》 — sanpang&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/20/原生js模拟vue双向数据绑定/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《原生JS模拟Vue双向数据绑定》 — sanpang&url=http://yoursite.com/2018/04/20/原生js模拟vue双向数据绑定/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/20/原生js模拟vue双向数据绑定/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/04/19/6/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Vue中实例对象的生命周期详解及细节应用(转自CSDN:金城阿武)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'true';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+<section class="comments" id="comments">
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script src="http://v2.uyan.cc/code/uyan.js?uid=true"></script>
+    <!-- UY END -->
+</section>
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>footer.license</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>sanpang &copy; 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/04/20/原生js模拟vue双向数据绑定/&title=《原生JS模拟Vue双向数据绑定》 — sanpang&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/04/20/原生js模拟vue双向数据绑定/&title=《原生JS模拟Vue双向数据绑定》 — sanpang&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/20/原生js模拟vue双向数据绑定/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《原生JS模拟Vue双向数据绑定》 — sanpang&url=http://yoursite.com/2018/04/20/原生js模拟vue双向数据绑定/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/20/原生js模拟vue双向数据绑定/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/04/20/原生js模拟vue双向数据绑定/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=true&web_id=true')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=true"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?true"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>web前端面试宝典-基础篇（三） | sanpang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="1.1 有一个长度未知的数组a，如果它的长度为0就把数字1添加到数组里面，否则按照先进先出的队列规则让第一个元素出列。（代码量小于30个字）。 这个网上给出了明确的答案。这是对数组的队列方法和栈方法，此题使用三元运算符比较好。答案: a.length === 0 ? a.push(1): a.shift();  1.2 防抖动与节流针对一些会频繁触发的事件如scroll、resize，如果正常绑定">
+<meta property="og:type" content="article">
+<meta property="og:title" content="web前端面试宝典-基础篇（三）">
+<meta property="og:url" content="http://yoursite.com/2017/11/30/12/index.html">
+<meta property="og:site_name" content="sanpang">
+<meta property="og:description" content="1.1 有一个长度未知的数组a，如果它的长度为0就把数字1添加到数组里面，否则按照先进先出的队列规则让第一个元素出列。（代码量小于30个字）。 这个网上给出了明确的答案。这是对数组的队列方法和栈方法，此题使用三元运算符比较好。答案: a.length === 0 ? a.push(1): a.shift();  1.2 防抖动与节流针对一些会频繁触发的事件如scroll、resize，如果正常绑定">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5877364-f2abdf0f166cac72.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5877364-0753919fdc15d00a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5877364-b0db2dbc8870613f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5877364-dc69f2b824bfba53.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-11-30T02:23:24.031Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="web前端面试宝典-基础篇（三）">
+<meta name="twitter:description" content="1.1 有一个长度未知的数组a，如果它的长度为0就把数字1添加到数组里面，否则按照先进先出的队列规则让第一个元素出列。（代码量小于30个字）。 这个网上给出了明确的答案。这是对数组的队列方法和栈方法，此题使用三元运算符比较好。答案: a.length === 0 ? a.push(1): a.shift();  1.2 防抖动与节流针对一些会频繁触发的事件如scroll、resize，如果正常绑定">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5877364-f2abdf0f166cac72.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">sanpang</h5>
+          <a href="mailto:1353600706@qq.com" title="1353600706@qq.com" class="mail">1353600706@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://fp.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://djweb.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://web.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                Link
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">web前端面试宝典-基础篇（三）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="global.search_input_hint">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">web前端面试宝典-基础篇（三）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-30T02:18:38.202Z" itemprop="datePublished" class="page-time">
+  2017-11-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-有一个长度未知的数组a，如果它的长度为0就把数字1添加到数组里面，否则按照先进先出的队列规则让第一个元素出列。（代码量小于30个字）。"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.1 有一个长度未知的数组a，如果它的长度为0就把数字1添加到数组里面，否则按照先进先出的队列规则让第一个元素出列。（代码量小于30个字）。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-防抖动与节流"><span class="post-toc-number">2.</span> <span class="post-toc-text">1.2 防抖动与节流</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-2-1-防抖动"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1.2.1 防抖动</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-2-2-节流"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">1.2.2 节流</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-2-3-总结"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">1.2.3 总结</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-浮动为什么会造成高度塌陷？如何解决？"><span class="post-toc-number"></span> <span class="post-toc-text">1.3 浮动为什么会造成高度塌陷？如何解决？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-1-清除浮动"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.3.1 清除浮动</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-2-闭合浮动"><span class="post-toc-number">2.</span> <span class="post-toc-text">1.3.2 闭合浮动</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-3-总结"><span class="post-toc-number">3.</span> <span class="post-toc-text">1.3.3 总结</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-3-为什么要闭合浮动？"><span class="post-toc-number">4.</span> <span class="post-toc-text">1.3.3 为什么要闭合浮动？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-4-最后就是怎么闭合浮动和原理？"><span class="post-toc-number">5.</span> <span class="post-toc-text">1.3.4 最后就是怎么闭合浮动和原理？</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-4-img-3像素或者4像素的问题？"><span class="post-toc-number"></span> <span class="post-toc-text">1.4 img 3像素或者4像素的问题？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-4-1这是什么原因？"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.4.1这是什么原因？</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-12"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">web前端面试宝典-基础篇（三）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-30 10:18:38" datetime="2017-11-30T02:18:38.202Z"  itemprop="datePublished">2017-11-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="1-1-有一个长度未知的数组a，如果它的长度为0就把数字1添加到数组里面，否则按照先进先出的队列规则让第一个元素出列。（代码量小于30个字）。"><a href="#1-1-有一个长度未知的数组a，如果它的长度为0就把数字1添加到数组里面，否则按照先进先出的队列规则让第一个元素出列。（代码量小于30个字）。" class="headerlink" title="1.1 有一个长度未知的数组a，如果它的长度为0就把数字1添加到数组里面，否则按照先进先出的队列规则让第一个元素出列。（代码量小于30个字）。"></a>1.1 有一个长度未知的数组a，如果它的长度为0就把数字1添加到数组里面，否则按照先进先出的队列规则让第一个元素出列。（代码量小于30个字）。</h3><blockquote>
+<p>这个网上给出了明确的答案。这是对数组的队列方法和栈方法，此题使用三元运算符比较好。<br>答案: a.length === 0 ? a.push(1): a.shift();</p>
+</blockquote>
+<h3 id="1-2-防抖动与节流"><a href="#1-2-防抖动与节流" class="headerlink" title="1.2 防抖动与节流"></a>1.2 防抖动与节流</h3><p>针对一些会频繁触发的事件如scroll、resize，如果正常绑定事件处理函数的话，很可能在很短的时间内多次连续触发事件，非常影响性能。<br>因此针对此类事件要进行防抖动或者节流处理。</p>
+<blockquote>
+<p>它的做法就是限制下次函数调用之前必须等待的时间间隔。正确实现debouncing的方法是将若干个函数调用合成一次，并在给定事件过去之后仅被调用一次。</p>
+</blockquote>
+<h4 id="1-2-1-防抖动"><a href="#1-2-1-防抖动" class="headerlink" title="1.2.1 防抖动"></a>1.2.1 防抖动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">javascript</span><br><span class="line">function debounce(fn, delay) &#123;</span><br><span class="line">  let timer = null;</span><br><span class="line">  let context = this;</span><br><span class="line">  let args = arguments;</span><br><span class="line"></span><br><span class="line">  clearTimeout(timer);</span><br><span class="line">  timer = setTimeout(function() &#123;</span><br><span class="line">    fn.apply(context, args);</span><br><span class="line">  &#125;, delay);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 当用户滚动时被调用的函数</span><br><span class="line">function foo() &#123;</span><br><span class="line">  console.log(&quot;You are scrolling&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let elem = document.getElementById(&quot;container&quot;);</span><br><span class="line">elem.addEventListener(&quot;click&quot;, debounce(f00, 2000));</span><br></pre></td></tr></table></figure>
+<ul>
+<li>首先我们为click事件绑定处理函数debounce，当点击时会立即调用，因此click事件触发的是foo函数</li>
+<li>每一次事件被触发，都会清除当前的timer然后重新设置超时调用。这就会导致每一次高频事件都会取消前一次的超时调用，导致事件处理程序不能被触发。</li>
+<li>只有当高频事件停止时，最后一次事件触发的超时调用才能在delay时间后执行。<h4 id="1-2-2-节流"><a href="#1-2-2-节流" class="headerlink" title="1.2.2 节流"></a>1.2.2 节流</h4>节流是另一种处理类似问题的解决方法。节流函数允许在一个函数在规定的时间内只执行一次。它和防抖动最大的区别是，节流函数不管事件触发的有多频繁，都会保证在规定时间内一定会执行一次真正的处理函数。<br>比如： 在页面的无限加载的场景下，我们需要用户滚动页面时，每隔一段时间发一次Ajax请求，而不是在用户停下滚动页面操作时采取请求数据。这样的场景，就适合用节流阀技术来实现。<br>实现方式有两种: 时间戳、定时器</li>
+<li>时间戳的实现:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">javascript</span><br><span class="line">var throttle = function(func, delay) &#123;</span><br><span class="line">  var prev = Date.now();</span><br><span class="line">  return function() &#123;</span><br><span class="line">    var context = this;</span><br><span class="line">    var args = arguments;</span><br><span class="line">    var now = Date.now();</span><br><span class="line">    if(now-&gt;prev == delay) &#123;</span><br><span class="line">      func.apply(context, args);</span><br><span class="line">      prev = Date.now();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>当高频事件触发时，第一次应该会立即执行，而后再怎么高频触发事件，也都是每delay秒才会执行一次。而当最后一次事件触发完毕后，事件也不会再被执行了。</p>
+<ul>
+<li>定时器实现：<br>当触发事件的时候，我们设置一个定时器，再触发事件的时候，如果定时器存在，就不执行了，直到delay后，定时器执行处理函数，清空定时器，这样就可以设置下一个定时器。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">javascript</span><br><span class="line">var throttle = functon(func, delay) &#123;</span><br><span class="line">  var timer = null;</span><br><span class="line">  return function() &#123;</span><br><span class="line">    var context = this;</span><br><span class="line">    var args = arguments;</span><br><span class="line">    </span><br><span class="line">    if(!timer) &#123;</span><br><span class="line">      timer = setTimeout(function() &#123;</span><br><span class="line">        func.apply(context, args);</span><br><span class="line">        timer = null;</span><br><span class="line">      &#125;, delay);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="1-2-3-总结"><a href="#1-2-3-总结" class="headerlink" title="1.2.3 总结"></a>1.2.3 总结</h4><p>其实上面的方式都可以进行调整，看自己的思路了。防止一个事件频繁触发回调函数的方式：</p>
+<ul>
+<li>防抖动</li>
+<li>节流</li>
+</ul>
+<blockquote>
+<p>趁着一点时间更新几道题目</p>
+</blockquote>
+<h2 id="1-3-浮动为什么会造成高度塌陷？如何解决？"><a href="#1-3-浮动为什么会造成高度塌陷？如何解决？" class="headerlink" title="1.3 浮动为什么会造成高度塌陷？如何解决？"></a>1.3 浮动为什么会造成高度塌陷？如何解决？</h2><p>这个问题其实很多面试题都会在问，其实就是这个知识点，没有太多的东西。好的，现在咱们先高清一些概念吧。</p>
+<h3 id="1-3-1-清除浮动"><a href="#1-3-1-清除浮动" class="headerlink" title="1.3.1 清除浮动"></a>1.3.1 清除浮动</h3><p>清除对应的单词是 clear，对应CSS中的属性是 clear：left | right | both | none；代码如下看效果:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">html</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">	&lt;style&gt;</span><br><span class="line">		.clearfix &#123;</span><br><span class="line">			clear: both;</span><br><span class="line">			height: 0;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		.demo1 &#123;</span><br><span class="line">			width: 300px;</span><br><span class="line">			/*height: auto;*/</span><br><span class="line">			border: 1px solid red;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		.div1 &#123;</span><br><span class="line">			width: 100px;</span><br><span class="line">			height: 100px;</span><br><span class="line">			background: red;</span><br><span class="line">			float: left;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		.div2 &#123;</span><br><span class="line">			width: 100px;</span><br><span class="line">			height: 100px;</span><br><span class="line">			background: blue;</span><br><span class="line">			float: right;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		/**/</span><br><span class="line">		.demo2 &#123;</span><br><span class="line">			width: 100px;</span><br><span class="line">			height: 50px;</span><br><span class="line">			background: yellow;</span><br><span class="line">		&#125;</span><br><span class="line">	&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;!-- 虽然下面清除了浮动，里面的元素依然不能将demo1的高度撑开 --&gt;</span><br><span class="line">	&lt;div class=&quot;demo1&quot;&gt;</span><br><span class="line">		&lt;div class=&quot;div1&quot;&gt;&lt;/div&gt;</span><br><span class="line">		&lt;div class=&quot;div2&quot;&gt;&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;!-- 清除浮动 --&gt;</span><br><span class="line">	&lt;div class=&quot;clearfix&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- 上面清除浮动，下面的排列正常 --&gt;</span><br><span class="line">	&lt;div class=&quot;demo2&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/5877364-f2abdf0f166cac72.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="效果图1" title="">
+                </div>
+                <div class="image-caption">效果图1</div>
+            </figure>
+<h3 id="1-3-2-闭合浮动"><a href="#1-3-2-闭合浮动" class="headerlink" title="1.3.2 闭合浮动"></a>1.3.2 闭合浮动</h3><p>更确切的含义是使浮动元素闭合，从而减少浮动带来的影响。代码如下，看相应的效果:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">html</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">	&lt;style&gt;</span><br><span class="line">		.clearfix &#123;</span><br><span class="line">			clear: both;</span><br><span class="line">			height: 0;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		.demo1 &#123;</span><br><span class="line">			width: 300px;</span><br><span class="line">			/*height: auto;*/</span><br><span class="line">			border: 5px solid blue;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		.div1 &#123;</span><br><span class="line">			width: 100px;</span><br><span class="line">			height: 100px;</span><br><span class="line">			background: red;</span><br><span class="line">			float: left;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		.div2 &#123;</span><br><span class="line">			width: 100px;</span><br><span class="line">			height: 100px;</span><br><span class="line">			background: blue;</span><br><span class="line">			float: left;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		.demo1::after &#123;</span><br><span class="line">			clear: both;</span><br><span class="line">			content: &quot;&quot;;</span><br><span class="line">			display: block;</span><br><span class="line">			height: 0;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		/**/</span><br><span class="line">		.demo2 &#123;</span><br><span class="line">			width: 100px;</span><br><span class="line">			height: 50px;</span><br><span class="line">			background: yellow;</span><br><span class="line">		&#125;</span><br><span class="line">	&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;!-- 虽然下面清除了浮动，里面的元素依然不能将demo1的高度撑开 --&gt;</span><br><span class="line">	&lt;div class=&quot;demo1&quot;&gt;</span><br><span class="line">		&lt;div class=&quot;div1&quot;&gt;&lt;/div&gt;</span><br><span class="line">		&lt;div class=&quot;div2&quot;&gt;&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- 上面清除浮动，下面的排列正常 --&gt;</span><br><span class="line">	&lt;div class=&quot;demo2&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/5877364-0753919fdc15d00a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="效果图2" title="">
+                </div>
+                <div class="image-caption">效果图2</div>
+            </figure>
+<h3 id="1-3-3-总结"><a href="#1-3-3-总结" class="headerlink" title="1.3.3 总结"></a>1.3.3 总结</h3><p>通过以上实例发现，其实我们想要达到的效果更确切地说是闭合浮动，而不是单纯的清除浮动，虽然设置了新标签来清除浮动但并不能解决wrap高度塌陷的问题。  </p>
+<blockquote>
+<p>用闭合浮动比清除浮动更加严谨，因此称之为：<strong>“闭合浮动”</strong>会更加严谨。</p>
+</blockquote>
+<h3 id="1-3-3-为什么要闭合浮动？"><a href="#1-3-3-为什么要闭合浮动？" class="headerlink" title="1.3.3 为什么要闭合浮动？"></a>1.3.3 为什么要闭合浮动？</h3><p>其实这个问题很简单，是因为浮动会给你的布局带来影响，否则闭合浮动干什么！！！不过还得需要认识两个概念，普通流和浮动。<br>1）普通流：很多人或者文章称之为文档流或者普通文档流，其实标准里根本就没有这个词。如果把文档流直译为英文就是 document flow ，但标准里只有另一个词，叫做 <strong>普通流</strong>或者称之为常规流。但似乎大家更习惯文档流的称呼，因为很多中文翻译的书就是这么来的。比如《CSS Mastery》，英文原书中至始至终都只有普通流 normal flow（普通流） 这一词，从来没出现过document flow （文档流）</p>
+<p>2）浮动：浮动的框可以左右移动，直至它的外边缘遇到包含框或者另一个浮动框的边缘。浮动框不属于文档中的普通流，当一个元素浮动之后，不会影响到块级框的布局而只会影响内联框（通常是文本）的排列，文档中的普通流就会表现得和浮动框不存在一样，当浮动框高度超出包含框的时候，也就会出现包含框不会自动伸高来闭合浮动元素（“高度塌陷”现象）。顾名思义，就是漂浮于普通流之上，像浮云一样，但是只能左右浮动。</p>
+<p>正是因为浮动的这种特性，导致本属于普通流中的元素浮动之后，包含框内部由于不存在其他普通流元素了，也就表现出高度为0（高度塌陷）。在实际布局中，往往这并不是我们所希望的，所以需要闭合浮动元素，使其包含框表现出正常的高度。</p>
+<h3 id="1-3-4-最后就是怎么闭合浮动和原理？"><a href="#1-3-4-最后就是怎么闭合浮动和原理？" class="headerlink" title="1.3.4 最后就是怎么闭合浮动和原理？"></a>1.3.4 最后就是怎么闭合浮动和原理？</h3><p>这个问题之前咱们都已经谈论过怎么闭合浮动了，至于原理需要移步对BFC的了解。希望同学们可以自己去查询。</p>
+<h2 id="1-4-img-3像素或者4像素的问题？"><a href="#1-4-img-3像素或者4像素的问题？" class="headerlink" title="1.4 img 3像素或者4像素的问题？"></a>1.4 img 3像素或者4像素的问题？</h2><p>代码如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">html</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;img三像素问题&lt;/title&gt;</span><br><span class="line">	&lt;style&gt;</span><br><span class="line">		img &#123;</span><br><span class="line">			/*vertical-align: top;*/</span><br><span class="line">		&#125;</span><br><span class="line">	&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div&gt;&lt;img src=&quot;1.png&quot; alt=&quot;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>执行结果如下:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/5877364-b0db2dbc8870613f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="执行效果" title="">
+                </div>
+                <div class="image-caption">执行效果</div>
+            </figure></p>
+<h3 id="1-4-1这是什么原因？"><a href="#1-4-1这是什么原因？" class="headerlink" title="1.4.1这是什么原因？"></a>1.4.1这是什么原因？</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/5877364-dc69f2b824bfba53.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1.4.1" title="">
+                </div>
+                <div class="image-caption">1.4.1</div>
+            </figure>
+<p> 从图中可以看到，baseline和bottom之间有一定的距离。实际上，inline的图片下面空白正是baseline和bottom之间的这段距离。即使只有图片没有文字，只要是inline的图片这段空白都会存在。<br>因此，想要去掉这段空白，最直接的方法是将图片的vertical-align设置为其他的值。或者咱们知道top和bottom直接的距离就是line-height的高度，当你设置外层div的行高为0时，也就意味这baseline和bottom之间的距离为0，那么空白也就会消失了。因此代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">html</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;img三像素问题&lt;/title&gt;</span><br><span class="line">	&lt;style&gt;</span><br><span class="line">		div &#123;</span><br><span class="line">			/*解决方案一：在div上增加line-height:0*/</span><br><span class="line">			/*line-height: 0;*/</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		img &#123;</span><br><span class="line">			/*解决方案二: 设置img的vertical-align为其他值*/</span><br><span class="line">			vertical-align: middle;</span><br><span class="line">		&#125;</span><br><span class="line">	&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div&gt;&lt;img src=&quot;1.png&quot; alt=&quot;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    post.last_updated<time datetime="2017-11-30T02:23:24.031Z" itemprop="dateUpdated">2017-11-30 10:23:24</time>
+</span><br>
+
+
+        
+        以上言论 如有不足 多多原谅！
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="sanpang">
+            sanpang
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/11/30/12/&title=《web前端面试宝典-基础篇（三）》 — sanpang&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/11/30/12/&title=《web前端面试宝典-基础篇（三）》 — sanpang&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/30/12/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《web前端面试宝典-基础篇（三）》 — sanpang&url=http://yoursite.com/2017/11/30/12/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/30/12/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/04/08/hello-world/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">在服务器上搭建hexo博客</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/28/11/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">web前端面试宝典-基础篇(二)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'true';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+<section class="comments" id="comments">
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script src="http://v2.uyan.cc/code/uyan.js?uid=true"></script>
+    <!-- UY END -->
+</section>
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>footer.license</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>sanpang &copy; 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/11/30/12/&title=《web前端面试宝典-基础篇（三）》 — sanpang&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/11/30/12/&title=《web前端面试宝典-基础篇（三）》 — sanpang&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/30/12/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《web前端面试宝典-基础篇（三）》 — sanpang&url=http://yoursite.com/2017/11/30/12/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/30/12/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2017/11/30/12/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=true&web_id=true')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

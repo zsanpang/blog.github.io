@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=true"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?true"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>web前端面试宝典-基础篇(二) | sanpang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="2.5 Ajax是什么? 有什么作用?Ajax这个东西，很多童鞋在学习的时候都很茫然，听起来很高大上的赶脚，而且也看不懂的样子。其实则不然，Ajax很简单，AJAX 就是一个与服务器交换数据并更新部分网页的技术，并且是在不重新加载整个页面的情况下。如果您学过计算机网络基础的话，或者学过TCP/IP协议的话，网络通讯对于你来说轻而易举，分分钟搞定（因为http协议就是在TCP的基础上写的应用级协议）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="web前端面试宝典-基础篇(二)">
+<meta property="og:url" content="http://yoursite.com/2017/11/28/11/index.html">
+<meta property="og:site_name" content="sanpang">
+<meta property="og:description" content="2.5 Ajax是什么? 有什么作用?Ajax这个东西，很多童鞋在学习的时候都很茫然，听起来很高大上的赶脚，而且也看不懂的样子。其实则不然，Ajax很简单，AJAX 就是一个与服务器交换数据并更新部分网页的技术，并且是在不重新加载整个页面的情况下。如果您学过计算机网络基础的话，或者学过TCP/IP协议的话，网络通讯对于你来说轻而易举，分分钟搞定（因为http协议就是在TCP的基础上写的应用级协议）">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5877364-1be7574c4b52dd65.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5877364-1eb8629c07ed9fea.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5877364-09ea15eceb4e805c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5877364-078cbef417b385af.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5877364-808df2a05bf7521e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5877364-fd2f1eef9d4318a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-11-28T02:18:19.436Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="web前端面试宝典-基础篇(二)">
+<meta name="twitter:description" content="2.5 Ajax是什么? 有什么作用?Ajax这个东西，很多童鞋在学习的时候都很茫然，听起来很高大上的赶脚，而且也看不懂的样子。其实则不然，Ajax很简单，AJAX 就是一个与服务器交换数据并更新部分网页的技术，并且是在不重新加载整个页面的情况下。如果您学过计算机网络基础的话，或者学过TCP/IP协议的话，网络通讯对于你来说轻而易举，分分钟搞定（因为http协议就是在TCP的基础上写的应用级协议）">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5877364-1be7574c4b52dd65.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">sanpang</h5>
+          <a href="mailto:1353600706@qq.com" title="1353600706@qq.com" class="mail">1353600706@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://fp.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://djweb.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://web.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                Link
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">web前端面试宝典-基础篇(二)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="global.search_input_hint">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">web前端面试宝典-基础篇(二)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-28T02:14:39.570Z" itemprop="datePublished" class="page-time">
+  2017-11-28
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-Ajax是什么-有什么作用"><span class="post-toc-number">1.</span> <span class="post-toc-text">2.5 Ajax是什么? 有什么作用?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-6-HTTP返回状态码总结"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.6 HTTP返回状态码总结</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-7-this指向问题？"><span class="post-toc-number">3.</span> <span class="post-toc-text">2.7 this指向问题？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-8-说一下作用域链是什么？"><span class="post-toc-number">4.</span> <span class="post-toc-text">2.8 说一下作用域链是什么？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#☆-作用域链"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">☆ 作用域链</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-当一个函数创建后，它的作用域链会被创建此函数的作用域中可访问的数据对象填充。例如定义下面这样一个函数："><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">1. 当一个函数创建后，它的作用域链会被创建此函数的作用域中可访问的数据对象填充。例如定义下面这样一个函数：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-当函数执行时，作用域链会发生变化的。"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">2. 当函数执行时，作用域链会发生变化的。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-使用with和catch可以改变执行时期的作用域链"><span class="post-toc-number">4.1.3.</span> <span class="post-toc-text">3. 使用with和catch可以改变执行时期的作用域链</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#☆-谈一下闭包（结合作用域链）"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">☆ 谈一下闭包（结合作用域链）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-9-怎么阻止冒泡事件？"><span class="post-toc-number">5.</span> <span class="post-toc-text">2.9 怎么阻止冒泡事件？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-捕获阶段"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">1. 捕获阶段</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-目标阶段"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">2.目标阶段</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-冒泡阶段"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">3.冒泡阶段</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-实例验证事件流"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">4. 实例验证事件流</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-11"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">web前端面试宝典-基础篇(二)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-28 10:14:39" datetime="2017-11-28T02:14:39.570Z"  itemprop="datePublished">2017-11-28</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="2-5-Ajax是什么-有什么作用"><a href="#2-5-Ajax是什么-有什么作用" class="headerlink" title="2.5 Ajax是什么? 有什么作用?"></a>2.5 Ajax是什么? 有什么作用?</h2><p>Ajax这个东西，很多童鞋在学习的时候都很茫然，听起来很高大上的赶脚，而且也看不懂的样子。其实则不然，Ajax很简单，AJAX 就是一个与服务器交换数据并更新部分网页的技术，并且是在不重新加载整个页面的情况下。如果您学过计算机网络基础的话，或者学过<strong><em>TCP/IP</em></strong>协议的话，网络通讯对于你来说轻而易举，分分钟搞定（因为http协议就是在TCP的基础上写的应用级协议）。<br>先将Ajax原生代码贴出来，使用了的XMLHttpRequest接口（目前应该都使用了xmlhttprequest level 2的接口了吧）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">       <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">myajax</span> (<span class="params">method, url, st, success, fail</span>) </span>&#123;</span><br><span class="line">		<span class="comment">// 1.创建一个Ajax的对象</span></span><br><span class="line">		<span class="keyword">var</span> ajax = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">		<span class="comment">// 2.链接服务器</span></span><br><span class="line">		ajax.open(method, url, st);</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 3.发送请求</span></span><br><span class="line">		ajax.send();</span><br><span class="line"></span><br><span class="line">              <span class="comment">// 4. 请求回调函数（当服务器给出响应时执行）</span></span><br><span class="line">		ajax.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(ajax.readyState == <span class="number">4</span>) &#123;</span><br><span class="line">				<span class="keyword">if</span>(ajax.status == <span class="number">200</span>) &#123;</span><br><span class="line">					success(ajax.responseText);</span><br><span class="line">				&#125;<span class="keyword">else</span> <span class="keyword">if</span>(ajax.status == <span class="number">404</span>) &#123;</span><br><span class="line">					fail(<span class="string">"请求文件不存在"</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	myajax(<span class="string">'GET'</span>, <span class="string">'a.txt'</span>, <span class="literal">true</span>, <span class="function"><span class="keyword">function</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="built_in">eval</span>(str));</span><br><span class="line">	&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>这个就是原生js的Ajax的请求，这里要说明一下的是Ajax的请求的方式有很多，目前只学习POST和GET这两种方式来完成。至于两者区别，你们自行研究（So easy），下面咱们来说一下HTTP的返回状态码的总结。</p>
+</blockquote>
+<h2 id="2-6-HTTP返回状态码总结"><a href="#2-6-HTTP返回状态码总结" class="headerlink" title="2.6 HTTP返回状态码总结"></a>2.6 HTTP返回状态码总结</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">状态码        |        描述</span><br><span class="line">------------- | -------------</span><br><span class="line">1xx           |   请求收到，继续处理</span><br><span class="line">2xx           |   操作成功收到，分析、接受</span><br><span class="line">3xx           |   完成此请求必须进一步处理</span><br><span class="line">4xx           |   请求包含一个错误语法或不能完成</span><br><span class="line">5xx           |   服务器执行一个完全有效请求失败</span><br></pre></td></tr></table></figure>
+<p><strong><em>1xx的状态码</em></strong><br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">状态码        |        描述</span><br><span class="line">------------- | -------------</span><br><span class="line">100(继续)     |  请求者应当继续提出请求。 服务器返回此代码表示已收到请求的第一部分，正在等待其余部分。</span><br><span class="line">101（切换协议）|  请求者已要求服务器切换协议，服务器已确认并准备切换。</span><br></pre></td></tr></table></figure></p>
+<p> <strong><em>2xx的状态码</em></strong><br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">状态码        |        描述</span><br><span class="line">------------- | -------------</span><br><span class="line">200(成功)       | 请求者应当继续提出请求。 服务器返回此代码表示已收到请求的第一部分，正在等待其余部分。</span><br><span class="line">201（已创建）   |  请求成功并且服务器创建了新的资源。</span><br><span class="line">202（已接受）   |  服务器已接受请求，但尚未处理。</span><br><span class="line">203（非授权信息）| 服务器已成功处理了请求，但返回的信息可能来自另一来源。</span><br><span class="line">204（无内容）   |  服务器成功处理了请求，但没有返回任何内容。</span><br><span class="line">205（重置内容） |  服务器成功处理了请求，但没有返回任何内容。 与 204 响应不同，此响应要求请求者重置文档视图（例如，清除表单内容以输入新内容）。</span><br><span class="line">206（部分内容） |  服务器成功处理了部分 GET 请求。</span><br></pre></td></tr></table></figure></p>
+<p> <strong><em>3xx的状态码</em></strong><br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">状态码        |        描述</span><br><span class="line">------------- | -------------</span><br><span class="line">300（多种选择）    |  针对请求，服务器可执行多种操作。 服务器可根据请求者（用户代理）选择一项操作，或提供操作列表供请求者选择。</span><br><span class="line">301（永久移动）    |  请求的网页已永久移动到新位置。 服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。 您应使用此代码告诉 Googlebot 某个网页或网站已永久移动到新位置。</span><br><span class="line">302（暂时移动）    |  服 务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。 此代码与响应 GET 或 HEAD 请求的 301 代码类似，会自动将请求者转到不同的位置，但您不应使用此代码来告诉 Googlebot 某个网页或网站已经移动，因为 Googlebot 会继续抓取原有位置并编入索引。</span><br><span class="line">303（查看其他位置） |  请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码。 对于除 HEAD 之外的所有请求，服务器会自动转到其他位置。</span><br><span class="line">304（未修改）      |  自从上次请求后，请求的网页未修改过。服务器返回此响应时，不会返回网页内容。如果网页自请求者上次请求后再也没有更改 过，您应当将服务器配置为返回此响应（称为 If-Modified-Since HTTP 标头）。 由于服务器可以告诉 Googlebot 自从上次抓取后网页没有更改过，因此可节省带宽和开销。</span><br><span class="line">305（使用代理）    |  请求者只能使用代理访问请求的网页。 如果服务器返回此响应，还表示请求者应使用代理。</span><br><span class="line">307（暂时重定向）  |  服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。 此代码与响应 GET 和 HEAD 请求的 301 代码类似，会自动将请求者转到不同的位置，但您不应使用此代码来告诉 Googlebot 某个页面或网站已经移动，因为 Googlebot 会继续抓取原有位置并编入索引。</span><br></pre></td></tr></table></figure></p>
+<p><strong><em>4xx状态码</em></strong><br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">状态码        |        描述</span><br><span class="line">------------- | -------------</span><br><span class="line">400（错误请求）     | 服务器不理解请求的语法。</span><br><span class="line">401（未授权）       |  请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。</span><br><span class="line">403（禁止）         |  服务器拒绝请求。 如果您看到 Googlebot 在尝试抓取您网站上的有效网页时收到此状态代码（可以在 Google 网站管理员工具诊 断 下的网络抓取 页面上看到此信息），可能是您的服务器或主机拒绝 Googlebot 访问。</span><br><span class="line">404（未找到）       | 服务器找不到请求的网页。 例如，如果请求服务器上不存在的网页，服务器通常会返回此代码。</span><br><span class="line">405（禁用的方法）   |  禁用请求中指定的方法。</span><br><span class="line">406（不可接受）     |  无法使用请求的内容特性响应请求的网页。</span><br><span class="line">407（需要代理授权） |  此状态代码与 401（未授权）类似，但指定请求者应当授权使用代理。 如果服务器返回此响应，还会指明请求者应当使用的代理。</span><br><span class="line">408（请求超时）     | 服务器等候请求时发生超时。</span><br><span class="line">409（冲突）         | 服务器在完成请求时发生冲突。 服务器必须在响应中包含有关冲突的信息。 服务器在响应与前一个请求相冲突的 PUT 请求时可能会返回此代码，同时会附上两个请求的差异列表。</span><br><span class="line">410（已删除）       | 如果请求的资源已永久删除，服务器就会返回此响应。 该代码与 404（未找到）代码相似，但在资源以前存在而现在不存在的情况下，有时会用来替代 404 代码。 如果资源已永久删除，您应当使用 301 指定资源的新位置。</span><br><span class="line">411（需要有效长度）  | 服务器不接受不含有效内容长度标头字段的请求。</span><br><span class="line">412（未满足前提条件）| 服务器未满足请求者在请求中设置的其中一个前提条件。</span><br><span class="line">413（请求实体过大）  | 服务器无法处理请求，因为请求实体过大，超出服务器的处理能力。</span><br><span class="line">414（请求的 URI 过长）   | 请求的 URI（通常为网址）过长，服务器无法处理。</span><br><span class="line">415（不支持的媒体类型）   | 请求的格式不受请求页面的支持。</span><br><span class="line">416（请求范围不符合要求） | 如果页面无法提供请求的范围，则服务器会返回此状态代码。</span><br><span class="line">417（未满足期望要求）     | 服务器未满足”期望”请求标头字段的要求。</span><br></pre></td></tr></table></figure></p>
+<p><strong><em>5xx状态码</em></strong><br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">状态码        |        描述</span><br><span class="line">------------- | -------------</span><br><span class="line">500（服务器内部错误）     |   服务器遇到错误，无法完成请求。</span><br><span class="line">501（尚未实施）           |   服务器不具备完成请求的功能。 例如，服务器无法识别请求方法时可能会返回此代码。</span><br><span class="line">502（错误网关）           |   服务器充当网关或代理，从上游服务器收到无效响应。</span><br><span class="line">503（服务不可用）         |   服务器目前无法使用（由于超载或停机维护）。 通常，这只是暂时状态。</span><br><span class="line">505（HTTP 版本不受支持）  |   服务器不支持请求中所用的 HTTP 协议版本。</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-7-this指向问题？"><a href="#2-7-this指向问题？" class="headerlink" title="2.7 this指向问题？"></a>2.7 this指向问题？</h2><p>this指向的这个问题网上很多文章说了一大堆，说到了重点，但是有点啰嗦。自认为只要一句话就行了。<br><strong><em>this永远指向的是最后调用它的对象，也就是看它执行的时候是谁调用的</em></strong><br>但是要注意的一点是：<br><strong><em>this在严格模式下，默认的指向不是window而是undefined；</em></strong></p>
+<blockquote>
+<p>在真正开发中经常会使用var that = this, 来保存第一次执行环境下的this。（在ES6中箭头函数的this指向问题，箭头函数里的this是定义时所在的作用域，而不是运行时所在的作用域）</p>
+</blockquote>
+<h2 id="2-8-说一下作用域链是什么？"><a href="#2-8-说一下作用域链是什么？" class="headerlink" title="2.8 说一下作用域链是什么？"></a>2.8 说一下作用域链是什么？</h2><p>最近好几天要不在老家要不在学校，没有时间去更新， 今天有点时间，下面就谈谈作用域链。（网上的案例很多，我拿过来分析，并且将闭包放到这里来说明）<br>在JavaScript中，变量的作用域有<strong><em>全局作用域</em></strong>和<strong><em>局部作用域</em></strong>两种。</p>
+<h3 id="☆-作用域链"><a href="#☆-作用域链" class="headerlink" title="☆ 作用域链"></a>☆ 作用域链</h3><p>在JavaScript中，函数也是对象，实际上，JavaScript里一切都是对象。函数对象和其它对象一样，拥有可以通过代码访问的属性和一系列仅供JavaScript引擎访问的内部属性。其中一个内部属性是[[Scope]]，由ECMA-262标准第三版定义，该内部属性包含了函数被创建的作用域中对象的集合，这个集合被称为函数的作用域链，它决定了哪些数据能被函数访问。</p>
+<h4 id="1-当一个函数创建后，它的作用域链会被创建此函数的作用域中可访问的数据对象填充。例如定义下面这样一个函数："><a href="#1-当一个函数创建后，它的作用域链会被创建此函数的作用域中可访问的数据对象填充。例如定义下面这样一个函数：" class="headerlink" title="1. 当一个函数创建后，它的作用域链会被创建此函数的作用域中可访问的数据对象填充。例如定义下面这样一个函数："></a>1. 当一个函数创建后，它的作用域链会被创建此函数的作用域中可访问的数据对象填充。例如定义下面这样一个函数：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> sum = num1 + num2;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在函数add创建时，它的作用域链中会填入一个全局对象，该全局对象包含了所有全局变量（不要问我哪里产生了[[scope]]，因为是自己生成的。），如下图所示（注意：图片只例举了全部变量中的一部分）：</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/5877364-1be7574c4b52dd65.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="函数作用域链"></p>
+<h4 id="2-当函数执行时，作用域链会发生变化的。"><a href="#2-当函数执行时，作用域链会发生变化的。" class="headerlink" title="2. 当函数执行时，作用域链会发生变化的。"></a>2. 当函数执行时，作用域链会发生变化的。</h4><p>比如执行下列代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> total = add(<span class="number">5</span>, <span class="number">10</span>);</span><br></pre></td></tr></table></figure></p>
+<p>执行此函数时会创建一个称为“运行期上下文(execution context)”的内部对象，运行期上下文定义了函数执行时的环境。每个运行期上下文都有自己的作用域链，用于标识符解析，当运行期上下文被创建时，而它的作用域链初始化为当前运行函数的[[Scope]]所包含的对象。<br>这些值按照它们出现在函数中的顺序被复制到运行期上下文的作用域链中。它们共同组成了一个新的对象，叫“活动对象(activation object)”，该对象包含了函数的所有局部变量、命名参数、参数集合以及this，然后此对象会被推入作用域链的前端，当运行期上下文被销毁，活动对象也随之销毁。新的作用域链如下图所示：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5877364-1eb8629c07ed9fea.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="代码执行时作用域链"></p>
+<blockquote>
+<p>这里说明一下scope对象中的0的指向变成了活动对象，1的指向变成了全局对象。</p>
+</blockquote>
+<h4 id="3-使用with和catch可以改变执行时期的作用域链"><a href="#3-使用with和catch可以改变执行时期的作用域链" class="headerlink" title="3. 使用with和catch可以改变执行时期的作用域链"></a>3. 使用with和catch可以改变执行时期的作用域链</h4><p>如果使用如下代码:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">initUI</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">with</span>(<span class="built_in">document</span>)&#123;</span><br><span class="line">        <span class="keyword">var</span> bd=body,</span><br><span class="line">            links=getElementsByTagName(<span class="string">"a"</span>),</span><br><span class="line">            i=<span class="number">0</span>,</span><br><span class="line">            len=links.length;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; len)&#123;</span><br><span class="line">            update(links[i++]);</span><br><span class="line">        &#125;</span><br><span class="line">        getElementById(<span class="string">"btnInit"</span>).onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            doSomething();</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里使用<strong><em>width</em></strong>语句来避免多次书写document，看上去更高效，实际上产生了性能问题。<br>当代码运行到with语句时，运行期上下文的作用域链临时被改变了。一个新的可变对象被创建，它包含了参数指定的对象的所有属性。这个对象将被推入作用域链的头部，这意味着函数的所有局部变量现在处于第二个作用域链对象中，因此访问代价更高了。如下图所示：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/5877364-09ea15eceb4e805c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="使用with将改变作用域链" title="">
+                </div>
+                <div class="image-caption">使用with将改变作用域链</div>
+            </figure>
+<h3 id="☆-谈一下闭包（结合作用域链）"><a href="#☆-谈一下闭包（结合作用域链）" class="headerlink" title="☆ 谈一下闭包（结合作用域链）"></a>☆ 谈一下闭包（结合作用域链）</h3><p>闭包其实就是一个函数在运行期间创建了另外一个函数。如下代码:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outside</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a  = <span class="number">1</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">inside</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/5877364-078cbef417b385af.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="闭包时作用域链" title="">
+                </div>
+                <div class="image-caption">闭包时作用域链</div>
+            </figure>
+<blockquote>
+<p>来说一下形成闭包的过程。当执行outside函数时， js引擎会创建outside函数的上下文的作用域链这个作用链包含了outside的执行时的活动对象和全局对象。当定义inside的时候，inside函数上的作用域链包含了两大块：outside函数的活动对象、全局对象。（当inside执行时，会在作用域链上增加一个新的对象，也就是它自身的活动对象。）</p>
+</blockquote>
+<h2 id="2-9-怎么阻止冒泡事件？"><a href="#2-9-怎么阻止冒泡事件？" class="headerlink" title="2.9 怎么阻止冒泡事件？"></a>2.9 怎么阻止冒泡事件？</h2><p>既然说到冒泡事件，那么就清晰去解析一下冒泡事件和捕获事件。（IE8及其IE8以下版本是不支持捕获事件的。）DOM的发展经历了DOM0、DOM2、DOM3三个版本。目前各个浏览器基本上支持DOM2的标准，所以咱们从DOM2的事件流来说起。<br>一般来说，事件流分为三个阶段: <strong><em>捕获阶段</em></strong>、<strong><em>目标阶段.
+</em></strong>、<strong><em>冒泡阶段</em></strong>。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/5877364-808df2a05bf7521e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="事件流过程" title="">
+                </div>
+                <div class="image-caption">事件流过程</div>
+            </figure>
+<h3 id="1-捕获阶段"><a href="#1-捕获阶段" class="headerlink" title="1. 捕获阶段"></a>1. 捕获阶段</h3><p>事件的第一个阶段就是捕获阶段。事件从文档的根节点也就是window对象开始流向目标对象节点。（W3C规范是从Document出发，但是浏览器厂商都是从Window对象）途中经过各个层次的DOM节点，并在各个节点上触发捕获事件，直到到达事件的目标节点。捕获阶段的主要任务就是建立传播途径，在冒泡阶段，事件通过这个路径进行回溯到文档根节点。<strong><em>捕获事件</em></strong>就是在捕获阶段触发的事件，并执行相应的处理函数。</p>
+<h3 id="2-目标阶段"><a href="#2-目标阶段" class="headerlink" title="2.目标阶段"></a>2.目标阶段</h3><p>事件对象到达其事件目标。 这个阶段被我们称为目标阶段。一旦事件对象到达事件目标，该阶段的事件监听器就要对它进行处理。如果一个事件对象类型被标志为不能冒泡。那么对应的事件对象在到达此阶段时就会终止传播。</p>
+<h3 id="3-冒泡阶段"><a href="#3-冒泡阶段" class="headerlink" title="3.冒泡阶段"></a>3.冒泡阶段</h3><p>事件对象以一个与捕获阶段相反的方向从事件目标传播经过其祖先节点传播到window。这个阶段被称之为冒泡阶段。在此阶段注册的事件监听器会对相应的冒泡事件进行处理。</p>
+<h3 id="4-实例验证事件流"><a href="#4-实例验证事件流" class="headerlink" title="4. 实例验证事件流"></a>4. 实例验证事件流</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">media</span>=<span class="string">"screen"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">		<span class="selector-class">.box1</span> &#123;</span></span><br><span class="line"><span class="undefined">			width: 800px;</span></span><br><span class="line"><span class="undefined">			height: 400px;</span></span><br><span class="line"><span class="undefined">			background: red;</span></span><br><span class="line"><span class="undefined">			margin: 0 auto;</span></span><br><span class="line"><span class="undefined">		&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">		<span class="selector-class">.box2</span> &#123;</span></span><br><span class="line"><span class="undefined">			width: 500px;</span></span><br><span class="line"><span class="undefined">			height: 300px;</span></span><br><span class="line"><span class="undefined">			background: green;</span></span><br><span class="line"><span class="undefined">			margin: auto;</span></span><br><span class="line"><span class="undefined">		&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">		<span class="selector-class">.box3</span> &#123;</span></span><br><span class="line"><span class="undefined">			width: 300px;</span></span><br><span class="line"><span class="undefined">			height: 100px;</span></span><br><span class="line"><span class="undefined">			background: blue;</span></span><br><span class="line"><span class="undefined">			margin: auto;</span></span><br><span class="line"><span class="undefined">		&#125;</span></span><br><span class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">		<span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> box1 = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"box1"</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> box2 = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"box1"</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> box3 = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"box1"</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">			<span class="built_in">window</span>.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="built_in">console</span>.log(<span class="string">"捕获阶段:window执行捕获事件"</span>);</span></span><br><span class="line"><span class="javascript">			&#125;, <span class="literal">true</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">			<span class="built_in">document</span>.body.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="built_in">console</span>.log(<span class="string">"捕获阶段:body执行捕获事件"</span>);</span></span><br><span class="line"><span class="javascript">			&#125;, <span class="literal">true</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">			<span class="built_in">window</span>.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="built_in">console</span>.log(<span class="string">"冒泡阶段:window执行冒泡事件"</span>);</span></span><br><span class="line"><span class="javascript">			&#125;, <span class="literal">false</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">			<span class="built_in">document</span>.body.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="built_in">console</span>.log(<span class="string">"冒泡阶段:body执行冒泡事件"</span>);</span></span><br><span class="line"><span class="javascript">			&#125;, <span class="literal">false</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">			box1.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="comment">/*  */</span></span></span><br><span class="line"><span class="javascript">				<span class="built_in">console</span>.log(<span class="string">"捕获阶段:box1执行捕获事件"</span>);</span></span><br><span class="line"><span class="javascript">			&#125;, <span class="literal">true</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">			box2.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="comment">/*  */</span></span></span><br><span class="line"><span class="javascript">				<span class="built_in">console</span>.log(<span class="string">"捕获阶段:box2执行捕获事件"</span>);</span></span><br><span class="line"><span class="javascript">			&#125;, <span class="literal">true</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">			box3.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="comment">/*  */</span></span></span><br><span class="line"><span class="javascript">				<span class="built_in">console</span>.log(<span class="string">"捕获阶段:box3执行捕获事件"</span>);</span></span><br><span class="line"><span class="javascript">			&#125;, <span class="literal">true</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">			box1.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="comment">/*  */</span></span></span><br><span class="line"><span class="javascript">				<span class="built_in">console</span>.log(<span class="string">"冒泡阶段:box1执行冒泡事件"</span>);</span></span><br><span class="line"><span class="javascript">			&#125;, <span class="literal">true</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">			box2.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="comment">/*  */</span></span></span><br><span class="line"><span class="javascript">				<span class="built_in">console</span>.log(<span class="string">"冒泡阶段:box2执行冒泡事件"</span>);</span></span><br><span class="line"><span class="javascript">			&#125;, <span class="literal">true</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">			box3.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="comment">/*  */</span></span></span><br><span class="line"><span class="javascript">				<span class="built_in">console</span>.log(<span class="string">"冒泡阶段:box3执行冒泡事件"</span>);</span></span><br><span class="line"><span class="javascript">			&#125;, <span class="literal">true</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">		&#125;		</span></span><br><span class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box1"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box2"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box3"</span>&gt;</span></span><br><span class="line">				</span><br><span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>执行结果如下:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://upload-images.jianshu.io/upload_images/5877364-fd2f1eef9d4318a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="执行结果" title="">
+                </div>
+                <div class="image-caption">执行结果</div>
+            </figure><br>这里说明一下当执行到达目标阶段时，可能出现冒泡事件比捕获事件先执行，这种情况是因为冒泡事件比捕获事件先<strong><em>注册</em></strong>。</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    post.last_updated<time datetime="2017-11-28T02:18:19.436Z" itemprop="dateUpdated">2017-11-28 10:18:19</time>
+</span><br>
+
+
+        
+        以上言论 如有不足 多多原谅！
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="sanpang">
+            sanpang
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/11/28/11/&title=《web前端面试宝典-基础篇(二)》 — sanpang&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/11/28/11/&title=《web前端面试宝典-基础篇(二)》 — sanpang&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/28/11/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《web前端面试宝典-基础篇(二)》 — sanpang&url=http://yoursite.com/2017/11/28/11/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/28/11/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/30/12/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">web前端面试宝典-基础篇（三）</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/22/10/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">web前端面试宝典-基础篇(一)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'true';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+<section class="comments" id="comments">
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script src="http://v2.uyan.cc/code/uyan.js?uid=true"></script>
+    <!-- UY END -->
+</section>
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>footer.license</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>sanpang &copy; 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/11/28/11/&title=《web前端面试宝典-基础篇(二)》 — sanpang&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/11/28/11/&title=《web前端面试宝典-基础篇(二)》 — sanpang&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/28/11/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《web前端面试宝典-基础篇(二)》 — sanpang&url=http://yoursite.com/2017/11/28/11/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/28/11/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2017/11/28/11/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=true&web_id=true')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
