@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=true"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?true"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>在服务器上搭建hexo博客 | sanpang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="随着Vateral主题的开发接近了尾声，在对主题速度优化的时候发现之前用的githubpage问题多多：首先就是因为在国内的原因，访问速度本身就很慢，曾经有次加载一张16kb的图标时间耗费了26s！！？其次，在对资源做CDN托管加速时，域名是需要备案的，显然githubpage也是做不了的；所以果断舍弃了这个把hexo搭建到了我的阿里云服务器现在是主机壳的香港VPS上  总体来说还是比把hexo搭">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在服务器上搭建hexo博客">
+<meta property="og:url" content="http://yoursite.com/2018/04/08/hello-world/index.html">
+<meta property="og:site_name" content="sanpang">
+<meta property="og:description" content="随着Vateral主题的开发接近了尾声，在对主题速度优化的时候发现之前用的githubpage问题多多：首先就是因为在国内的原因，访问速度本身就很慢，曾经有次加载一张16kb的图标时间耗费了26s！！？其次，在对资源做CDN托管加速时，域名是需要备案的，显然githubpage也是做不了的；所以果断舍弃了这个把hexo搭建到了我的阿里云服务器现在是主机壳的香港VPS上  总体来说还是比把hexo搭">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/img/5923dfcfd2f50.png">
+<meta property="og:updated_time" content="2018-04-12T00:43:03.727Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在服务器上搭建hexo博客">
+<meta name="twitter:description" content="随着Vateral主题的开发接近了尾声，在对主题速度优化的时候发现之前用的githubpage问题多多：首先就是因为在国内的原因，访问速度本身就很慢，曾经有次加载一张16kb的图标时间耗费了26s！！？其次，在对资源做CDN托管加速时，域名是需要备案的，显然githubpage也是做不了的；所以果断舍弃了这个把hexo搭建到了我的阿里云服务器现在是主机壳的香港VPS上  总体来说还是比把hexo搭">
+<meta name="twitter:image" content="http://yoursite.com/img/5923dfcfd2f50.png">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">sanpang</h5>
+          <a href="mailto:1353600706@qq.com" title="1353600706@qq.com" class="mail">1353600706@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://fp.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://djweb.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://web.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                Link
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">在服务器上搭建hexo博客</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="global.search_input_hint">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">在服务器上搭建hexo博客</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-04-08T09:27:17.971Z" itemprop="datePublished" class="page-time">
+  2018-04-08
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#hexo的架构"><span class="post-toc-number">1.</span> <span class="post-toc-text">hexo的架构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#搭建流程"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">搭建流程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#搭建流程-1"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">搭建流程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装node-js"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">安装node.js</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#初始化Hexo博客"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">初始化Hexo博客</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#生成自己的第一篇文章"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">生成自己的第一篇文章</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#给hexo安装git工具插件"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">给hexo安装git工具插件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置远程仓库"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">配置远程仓库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用hexo将代码提交到远程仓库"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">使用hexo将代码提交到远程仓库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#优化博客"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">优化博客</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-hello-world"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">在服务器上搭建hexo博客</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-04-08 17:27:17" datetime="2018-04-08T09:27:17.971Z"  itemprop="datePublished">2018-04-08</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>随着Vateral主题的开发接近了尾声，在对主题速度优化的时候发现之前用的githubpage问题多多：首先就是因为在国内的原因，访问速度本身就很慢，曾经有次加载一张16kb的图标时间耗费了26s！！？其次，在对资源做CDN托管加速时，域名是需要备案的，显然githubpage也是做不了的；所以果断舍弃了这个把hexo搭建到了我的阿里云服务器现在是主机壳的香港VPS上</p>
+<blockquote>
+<p>总体来说还是比把hexo搭建到github上要复杂一些的，期间遇到了不少坑，也参考了很多资料，这里详细的总结一下具体的步骤</p>
+</blockquote>
+<h2 id="hexo的架构"><a href="#hexo的架构" class="headerlink" title="hexo的架构"></a>hexo的架构</h2><hr>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/5923dfcfd2f50.png" alt="Alt text" title="">
+                </div>
+                <div class="image-caption">Alt text</div>
+            </figure>
+<p>首先我们要理解hexo是如何实现静态博客通过服务器访问的</p>
+<p>通过上图我们可以知道，整个流程就是在本地通过hexo g 渲染博客的静态文件，然后通过hexo d 把静态文件 push到服务器上我们自己创建的git仓库,服务器再通过 git-hooks 同步网站根目录，这样就可以访问了</p>
+<h3 id="搭建流程"><a href="#搭建流程" class="headerlink" title="搭建流程"></a>搭建流程</h3><hr>
+<blockquote>
+<p>第一步： 安装node.js以及本地Hexo初始化<br>第二步： 服务器环境搭建，包括安装 Git 、Nginx配置 、创建 git 用户<br>第三步： 使用Git自动化部署发布博客</p>
+</blockquote>
+<h3 id="搭建流程-1"><a href="#搭建流程-1" class="headerlink" title="搭建流程"></a>搭建流程</h3><hr>
+<h4 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">安装nodejs(nodejs是一个js的运行环境)</span><br><span class="line">node -v、npm -v</span><br></pre></td></tr></table></figure>
+<h4 id="初始化Hexo博客"><a href="#初始化Hexo博客" class="headerlink" title="初始化Hexo博客"></a>初始化Hexo博客</h4><p>首先安装hexo-cli</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli // 安装hexo工具</span><br></pre></td></tr></table></figure>
+<p>然后创建 你的Hexo目录，然后进入到这个目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog // 找到一个合适的文件(你的路径没有中文)输入此命令。</span><br><span class="line"><span class="built_in">cd</span> blog     // 切换到blog文件夹中</span><br><span class="line">npm install // 安装依赖文件</span><br><span class="line">hexo server // 在本地开启一个服务器</span><br></pre></td></tr></table></figure>
+<p>初始化该文件夹</p>
+<p>到这里hexo的本地搭建已经基本结束了，快来新建一个文章并在本地启动吧~</p>
+<h3 id="生成自己的第一篇文章"><a href="#生成自己的第一篇文章" class="headerlink" title="生成自己的第一篇文章"></a>生成自己的第一篇文章</h3><p>  使用hexo new &lt;第一章&gt;来新建文章，该命令会生成一个.md文件放置在sources/_posts文件夹。（*在hexo目录下执行命令）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;hello Hexo&quot;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">执行该命令后在hexo目录下的 sources/_posts文件夹里生成了刚刚创建的hello</span><br><span class="line">Hexo.md的markdown文件，然后就可以通过本地或者在线的markdown编辑器就可以创作自己的博客了~</span><br></pre></td></tr></table></figure>
+<p>编辑完毕以后， 使用hexo g将 .md文件渲染成静态文件，然后启动hexo-server<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>打开 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 如果看到 hexo 的初始页面证明安装成功。</p>
+</blockquote>
+<h3 id="给hexo安装git工具插件"><a href="#给hexo安装git工具插件" class="headerlink" title="给hexo安装git工具插件"></a>给hexo安装git工具插件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<h3 id="配置远程仓库"><a href="#配置远程仓库" class="headerlink" title="配置远程仓库"></a>配置远程仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">在hexo的工程中，根目录中有一个_config.yml的文件中配置如下:</span><br><span class="line">   deploy:</span><br><span class="line"> 	   type: git</span><br><span class="line"> 	   repository: git@github.com:hjyl-cheng/hjyl-cheng.github.io.git</span><br><span class="line"> 	   branch: master</span><br></pre></td></tr></table></figure>
+<h3 id="使用hexo将代码提交到远程仓库"><a href="#使用hexo将代码提交到远程仓库" class="headerlink" title="使用hexo将代码提交到远程仓库"></a>使用hexo将代码提交到远程仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean // 先将之前生成的public文件夹删除掉</span><br><span class="line">hexo d g   // 生成html代码并且提交到github上。 g: 生成 d:提交</span><br></pre></td></tr></table></figure>
+<h3 id="优化博客"><a href="#优化博客" class="headerlink" title="优化博客"></a>优化博客</h3><blockquote>
+<p>UI 优化 下载相关的主题，修改theme: ***<br>  域名解析 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 或 <a href="http://127.0.0.1:4000" target="_blank" rel="noopener">http://127.0.0.1:4000</a></p>
+</blockquote>
+<!--      # ：标题
+   - : 列表
+   ```: 代码区
+   > : 区块
+   *** ： 水平线
+   *** ***：斜体 -->
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    post.last_updated<time datetime="2018-04-12T00:43:03.727Z" itemprop="dateUpdated">2018-04-12 08:43:03</time>
+</span><br>
+
+
+        
+        以上言论 如有不足 多多原谅！
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="sanpang">
+            sanpang
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/04/08/hello-world/&title=《在服务器上搭建hexo博客》 — sanpang&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/04/08/hello-world/&title=《在服务器上搭建hexo博客》 — sanpang&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/08/hello-world/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《在服务器上搭建hexo博客》 — sanpang&url=http://yoursite.com/2018/04/08/hello-world/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/08/hello-world/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/04/09/2/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">闭包现象</h4>
+      </a>
+    </div>
+  
+
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'true';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+<section class="comments" id="comments">
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script src="http://v2.uyan.cc/code/uyan.js?uid=true"></script>
+    <!-- UY END -->
+</section>
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>footer.license</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>sanpang &copy; 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/04/08/hello-world/&title=《在服务器上搭建hexo博客》 — sanpang&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/04/08/hello-world/&title=《在服务器上搭建hexo博客》 — sanpang&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/08/hello-world/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《在服务器上搭建hexo博客》 — sanpang&url=http://yoursite.com/2018/04/08/hello-world/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/08/hello-world/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/04/08/hello-world/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=true&web_id=true')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

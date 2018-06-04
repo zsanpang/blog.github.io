@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=true"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?true"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>如何解决0.1 +0.2===0.30000000000000004类问题	(转) | sanpang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="这篇博客将主要提供几种解决小数精度丢失问题的Javascript类库的代码示例，以及简单的原生EcmaScript方法的代码示例。  一.类库部分math.jsmath.js是JavaScript和Node.js的一个广泛的数学库。支持数字，大数，复数，分数，单位和矩阵等数据类型的运算。 官网：http://mathjs.org/GitHub：https://github.com/josdejo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何解决0.1 +0.2===0.30000000000000004类问题	(转)">
+<meta property="og:url" content="http://yoursite.com/2018/04/18/5/index.html">
+<meta property="og:site_name" content="sanpang">
+<meta property="og:description" content="这篇博客将主要提供几种解决小数精度丢失问题的Javascript类库的代码示例，以及简单的原生EcmaScript方法的代码示例。  一.类库部分math.jsmath.js是JavaScript和Node.js的一个广泛的数学库。支持数字，大数，复数，分数，单位和矩阵等数据类型的运算。 官网：http://mathjs.org/GitHub：https://github.com/josdejo">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/img/1.png">
+<meta property="og:image" content="http://yoursite.com/img/2.png">
+<meta property="og:updated_time" content="2018-06-04T01:31:33.526Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何解决0.1 +0.2===0.30000000000000004类问题	(转)">
+<meta name="twitter:description" content="这篇博客将主要提供几种解决小数精度丢失问题的Javascript类库的代码示例，以及简单的原生EcmaScript方法的代码示例。  一.类库部分math.jsmath.js是JavaScript和Node.js的一个广泛的数学库。支持数字，大数，复数，分数，单位和矩阵等数据类型的运算。 官网：http://mathjs.org/GitHub：https://github.com/josdejo">
+<meta name="twitter:image" content="http://yoursite.com/img/1.png">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">sanpang</h5>
+          <a href="mailto:1353600706@qq.com" title="1353600706@qq.com" class="mail">1353600706@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://fp.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://djweb.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://web.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                Link
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">如何解决0.1 +0.2===0.30000000000000004类问题	(转)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="global.search_input_hint">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">如何解决0.1 +0.2===0.30000000000000004类问题	(转)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-04-18T09:06:28.494Z" itemprop="datePublished" class="page-time">
+  2018-04-18
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一-类库部分"><span class="post-toc-number">1.</span> <span class="post-toc-text">一.类库部分</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#math-js"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">math.js</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#decimal-js"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">decimal.js</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#bignumber-js"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">bignumber.js</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#big-js"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">big.js</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二-原生方法"><span class="post-toc-number">2.</span> <span class="post-toc-text">二.原生方法</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-5"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">如何解决0.1 +0.2===0.30000000000000004类问题	(转)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-04-18 17:06:28" datetime="2018-04-18T09:06:28.494Z"  itemprop="datePublished">2018-04-18</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>这篇博客将主要提供几种解决小数精度丢失问题的Javascript类库的代码示例，以及简单的原生EcmaScript方法的代码示例。</p>
+</blockquote>
+<h3 id="一-类库部分"><a href="#一-类库部分" class="headerlink" title="一.类库部分"></a>一.类库部分</h3><h4 id="math-js"><a href="#math-js" class="headerlink" title="math.js"></a>math.js</h4><p>math.js是JavaScript和Node.js的一个广泛的数学库。支持数字，大数，复数，分数，单位和矩阵等数据类型的运算。</p>
+<p>官网：<a href="http://mathjs.org/" target="_blank" rel="noopener">http://mathjs.org/</a><br>GitHub：<a href="https://github.com/josdejong/mathjs" target="_blank" rel="noopener">https://github.com/josdejong/mathjs</a></p>
+<p>0.1+0.2 ===0.3实现代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var math = require(&apos;mathjs&apos;)</span><br><span class="line">console.log(math.add(0.1,0.2))//0.30000000000000004</span><br><span class="line">console.log(math.format((math.add(math.bignumber(0.1),math.bignumber(0.2)))))//&apos;0.3&apos;</span><br></pre></td></tr></table></figure></p>
+<h4 id="decimal-js"><a href="#decimal-js" class="headerlink" title="decimal.js"></a>decimal.js</h4><p>为 JavaScript 提供十进制类型的任意精度数值。</p>
+<p>官网：<a href="http://mikemcl.github.io/decimal.js/" target="_blank" rel="noopener">http://mikemcl.github.io/decimal.js/</a></p>
+<p>GitHub：<a href="https://github.com/MikeMcl/decimal.js" target="_blank" rel="noopener">https://github.com/MikeMcl/decimal.js</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var Decimal = require(&apos;decimal.js&apos;)</span><br><span class="line">x = new  Decimal(0.1)</span><br><span class="line">y = 0.2</span><br><span class="line">console.log(x.plus(y).toString())//&apos;0.3&apos;</span><br></pre></td></tr></table></figure></p>
+<h4 id="bignumber-js"><a href="#bignumber-js" class="headerlink" title="bignumber.js"></a>bignumber.js</h4><p>用于任意精度算术的JavaScript库。</p>
+<p>官网：<a href="http://mikemcl.github.io/bignumber.js/" target="_blank" rel="noopener">http://mikemcl.github.io/bignumber.js/</a></p>
+<p>Github：<a href="https://github.com/MikeMcl/bignumber.js" target="_blank" rel="noopener">https://github.com/MikeMcl/bignumber.js</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var BigNumber = require(&quot;bignumber.js&quot;)</span><br><span class="line">x = new BigNumber(0.1)</span><br><span class="line">y = 0.2</span><br><span class="line">console.log(x.plus(y).toString())//&apos;0.3&apos;</span><br></pre></td></tr></table></figure>
+<h4 id="big-js"><a href="#big-js" class="headerlink" title="big.js"></a>big.js</h4><p>用于任意精度十进制算术的小型快速JavaScript库。</p>
+<p>官网：<a href="http://mikemcl.github.io/big.js/" target="_blank" rel="noopener">http://mikemcl.github.io/big.js/</a></p>
+<p>Github：<a href="https://github.com/MikeMcl/big.js/" target="_blank" rel="noopener">https://github.com/MikeMcl/big.js/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var Big = require(&quot;big.js&quot;)</span><br><span class="line">x = new Big(0.1)</span><br><span class="line">y = 0.2</span><br><span class="line">console.log(x.plus(y).toString())//&apos;0.3&apos;</span><br></pre></td></tr></table></figure>
+<p>有一个需要注意的点，使用类库此时输出的0.3是String类型，因此若想保持为Number类型，可使用parseFloat()方法。</p>
+<p>还有一个注意点，在本地install测试的时候，npm i mathjs -g ，require是也要require(‘mathjs’)，而不是带点的math.js，因为josdejong这哥们在创建项目的时候就命名为mathjs，而同时拥有上述decimal.js， bignumber.js和big.js的MikeMcl，项目名字就带了dot，因此安装和引入时，都是xxx.js的形式。</p>
+<p>如何在这三个类库之间做选择，还需要大家自己根据具体情况具体分析，我在这里就不赘述了。</p>
+<p>最后，教大家一个线上直接测试的网站，<a href="https://npm.runkit.com，子路径输入想要测试的Node.js" target="_blank" rel="noopener">https://npm.runkit.com，子路径输入想要测试的Node.js</a> package名，就可以实现在线测试包中的api了。<br>例如：<br>math.js：<a href="https://npm.runkit.com/mathjs" target="_blank" rel="noopener">https://npm.runkit.com/mathjs</a><br>big.js：<a href="https://npm.runkit.com/big.js" target="_blank" rel="noopener">https://npm.runkit.com/big.js</a></p>
+<h3 id="二-原生方法"><a href="#二-原生方法" class="headerlink" title="二.原生方法"></a>二.原生方法</h3><p>类库其实很强大，我们计算0.1+0.2其实只是用到了冰山一角，那么我们如何使用原生的EcmaScript代码来应用于简单的问题场景呢？</p>
+<p>这就要用到Number.prototype.toFixed()这个方法了。</p>
+<p>浮点数运算</p>
+<p>toFixed() 方法</p>
+<p>浮点数运算的解决方案有很多，这里给出一种目前常用的解决方案, 在判断浮点数运算结果前对计算结果进行精度缩小，因为在精度缩小的过程总会自动四舍五入。</p>
+<p>toFixed() 方法使用定点表示法来格式化一个数，会对结果进行四舍五入。语法为：</p>
+<p>JavaScript 代码:<br>numObj.toFixed(digits)<br>参数 digits 表示小数点后数字的个数；介于 0 到 20 （包括）之间，实现环境可能支持更大范围。如果忽略该参数，则默认为 0。</p>
+<p>返回一个数值的字符串表现形式，不使用指数记数法，而是在小数点后有 digits 位数字。该数值在必要时进行四舍五入，另外在必要时会用 0 来填充小数部分，以便小数部分有指定的位数。 如果数值大于 1e+21，该方法会简单调用 Number.prototype.toString()并返回一个指数记数法格式的字符串。</p>
+<p>特别注意：toFixed() 返回一个数值的字符串表现形式。</p>
+<p>具体可以查看 MDN中的说明，那么我们可以这样解决精度问题：</p>
+<p>JavaScript 代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">parseFloat((数学表达式).toFixed(digits))； // toFixed() 精度参数须在 0 与20 之间</span><br><span class="line">// 运行</span><br><span class="line">parseFloat((0.1 + 0.2).toFixed(10))//结果为0.3</span><br><span class="line">parseFloat((0.3 / 0.1).toFixed(10)) // 结果为 3  </span><br><span class="line">parseFloat((0.7 * 180).toFixed(10))//结果为126</span><br><span class="line">parseFloat((1.0 - 0.9).toFixed(10)) // 结果为 0.1   </span><br><span class="line">parseFloat((9.7 * 100).toFixed(10)) // 结果为 970 </span><br><span class="line">parseFloat((2.22 + 0.1).toFixed(10)) // 结果为 2.32</span><br></pre></td></tr></table></figure></p>
+<p>在Browser环境精度参数允许0~100位之间（包括100），测试版本为Chrome62(64位)和Firefox56 (32 位)。<br>在Nodejs环境中，只能是0~20之间，测试版本为v6.9.5。</p>
+<p>其次就是toFixed()的浏览器兼容性讨论，MDN给出的结果全部是YES，无论desktop端还是mobile端，也就是说不用担心toFixed()的兼容性问题（ie8- 我们不做讨论）。</p>
+<p>desktop端：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/1.png" alt="desktop端" title="">
+                </div>
+                <div class="image-caption">desktop端</div>
+            </figure></p>
+<p>mobile端：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/2.png" alt="mobile端" title="">
+                </div>
+                <div class="image-caption">mobile端</div>
+            </figure><br>Thanks:<br><a href="http://www.css88.com/archives.." target="_blank" rel="noopener">http://www.css88.com/archives..</a>.<br><a href="https://developer.mozilla.org.." target="_blank" rel="noopener">https://developer.mozilla.org..</a>.</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    post.last_updated<time datetime="2018-06-04T01:31:33.526Z" itemprop="dateUpdated">2018-06-04 09:31:33</time>
+</span><br>
+
+
+        
+        以上言论 如有不足 多多原谅！
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="sanpang">
+            sanpang
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/04/18/5/&title=《如何解决0.1 +0.2===0.30000000000000004类问题	(转)》 — sanpang&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/04/18/5/&title=《如何解决0.1 +0.2===0.30000000000000004类问题	(转)》 — sanpang&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/18/5/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《如何解决0.1 +0.2===0.30000000000000004类问题	(转)》 — sanpang&url=http://yoursite.com/2018/04/18/5/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/18/5/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/04/17/4/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Vue 的实践</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'true';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+<section class="comments" id="comments">
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script src="http://v2.uyan.cc/code/uyan.js?uid=true"></script>
+    <!-- UY END -->
+</section>
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>footer.license</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>sanpang &copy; 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/04/18/5/&title=《如何解决0.1 +0.2===0.30000000000000004类问题	(转)》 — sanpang&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/04/18/5/&title=《如何解决0.1 +0.2===0.30000000000000004类问题	(转)》 — sanpang&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/18/5/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《如何解决0.1 +0.2===0.30000000000000004类问题	(转)》 — sanpang&url=http://yoursite.com/2018/04/18/5/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/18/5/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/04/18/5/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=true&web_id=true')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

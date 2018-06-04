@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=true"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?true"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Vue 的实践 | sanpang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="记录我在使用 Vue 中发现的一些好的代码实践，希望能够保持更新。  this 引用在组件作用域内使用箭头函数可以保证 this 永远指向组件本身。 123456789101112131415// badexport default &amp;#123;    data() &amp;#123;        return &amp;#123;            msg: &amp;apos;hello&amp;apos;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue 的实践">
+<meta property="og:url" content="http://yoursite.com/2018/04/17/4/index.html">
+<meta property="og:site_name" content="sanpang">
+<meta property="og:description" content="记录我在使用 Vue 中发现的一些好的代码实践，希望能够保持更新。  this 引用在组件作用域内使用箭头函数可以保证 this 永远指向组件本身。 123456789101112131415// badexport default &amp;#123;    data() &amp;#123;        return &amp;#123;            msg: &amp;apos;hello&amp;apos;">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-04-17T12:43:31.362Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue 的实践">
+<meta name="twitter:description" content="记录我在使用 Vue 中发现的一些好的代码实践，希望能够保持更新。  this 引用在组件作用域内使用箭头函数可以保证 this 永远指向组件本身。 123456789101112131415// badexport default &amp;#123;    data() &amp;#123;        return &amp;#123;            msg: &amp;apos;hello&amp;apos;">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">sanpang</h5>
+          <a href="mailto:1353600706@qq.com" title="1353600706@qq.com" class="mail">1353600706@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://fp.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://djweb.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://web.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://blog.zsanpang.cn/" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                Link
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Vue 的实践</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="global.search_input_hint">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Vue 的实践</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-04-17T12:01:22.467Z" itemprop="datePublished" class="page-time">
+  2018-04-17
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#this-引用"><span class="post-toc-number">1.</span> <span class="post-toc-text">this 引用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#属性绑定"><span class="post-toc-number">2.</span> <span class="post-toc-text">属性绑定</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#双向绑定"><span class="post-toc-number">3.</span> <span class="post-toc-text">双向绑定</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#释放资源"><span class="post-toc-number">4.</span> <span class="post-toc-text">释放资源</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修饰符"><span class="post-toc-number">5.</span> <span class="post-toc-text">修饰符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据请求"><span class="post-toc-number">6.</span> <span class="post-toc-text">数据请求</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#减少嵌套层级"><span class="post-toc-number">7.</span> <span class="post-toc-text">减少嵌套层级</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#过滤器"><span class="post-toc-number">8.</span> <span class="post-toc-text">过滤器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Props"><span class="post-toc-number">9.</span> <span class="post-toc-text">Props</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#v-if"><span class="post-toc-number">10.</span> <span class="post-toc-text">v-if</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#路由"><span class="post-toc-number">11.</span> <span class="post-toc-text">路由</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#继承和混合"><span class="post-toc-number">12.</span> <span class="post-toc-text">继承和混合</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第三方库的集成"><span class="post-toc-number">13.</span> <span class="post-toc-text">第三方库的集成</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-4"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Vue 的实践</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-04-17 20:01:22" datetime="2018-04-17T12:01:22.467Z"  itemprop="datePublished">2018-04-17</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>记录我在使用 Vue 中发现的一些好的代码实践，希望能够保持更新。</p>
+</blockquote>
+<h3 id="this-引用"><a href="#this-引用" class="headerlink" title="this 引用"></a>this 引用</h3><p>在组件作用域内使用箭头函数可以保证 this 永远指向组件本身。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// bad</span><br><span class="line">export default &#123;</span><br><span class="line">    data() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            msg: &apos;hello&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        hello() &#123;</span><br><span class="line">            setTimeout(function() &#123;</span><br><span class="line">                console.log(this.msg) // this 指向 window</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// good</span><br><span class="line">export default &#123;</span><br><span class="line">    data() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            msg: &apos;hello&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        hello() &#123;</span><br><span class="line">            setTimeout(() =&gt; &#123;</span><br><span class="line">                console.log(this.msg) // this 指向组件</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="属性绑定"><a href="#属性绑定" class="headerlink" title="属性绑定"></a>属性绑定</h3><p>绑定字符串不需要加冒号。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- bad --&gt;</span><br><span class="line">&lt;component :str=&quot;&apos;hello&apos;&quot;&gt;&lt;/component&gt;</span><br><span class="line">&lt;!-- good --&gt;</span><br><span class="line">&lt;component str=&quot;hello&quot;&gt;&lt;/component&gt;</span><br></pre></td></tr></table></figure>
+<p>布尔属性省略值时默认为 true。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;my-modal visible&gt;&lt;/my-modal&gt;</span><br><span class="line">&lt;!--等价于--&gt;</span><br><span class="line">&lt;!--&lt;my-modal :visible=&quot;true&quot;&gt;&lt;/my-modal&gt;--&gt;</span><br></pre></td></tr></table></figure>
+<p>绑定无参函数不需要加括号。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- bad，括号多余 --&gt;</span><br><span class="line">&lt;button @click=&quot;onClick()&quot;&gt;&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- good，隐式传递了 event 对象 --&gt;</span><br><span class="line">&lt;button @click=&quot;onClick&quot;&gt;&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<p>只有一行代码的事件函数，可以直接写标签上。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button @click=&quot;visible = true&quot;&gt;&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="双向绑定"><a href="#双向绑定" class="headerlink" title="双向绑定"></a>双向绑定</h3><p>表单组件一般都支持双向绑定，实际场景中表单组件值发生变化往往要在 POST or PUT 请求之后。如果直接在 v-model 绑定原始值往往会打破单向数据流。</p>
+<p>使用计算属性的 get/set 方式可以解决这个问题。（也适用 .sync）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;</span><br><span class="line">    template: `</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;input type=&quot;radio&quot; v-model=&quot;nameVal&quot; value=&quot;1&quot;&gt;</span><br><span class="line">            &lt;input type=&quot;radio&quot; v-model=&quot;nameVal&quot; value=&quot;2&quot;&gt;</span><br><span class="line">        &lt;/div&gt;`,</span><br><span class="line">    data() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            name: &apos;&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    computed: &#123;</span><br><span class="line">        nameVal: &#123;</span><br><span class="line">            get() &#123;</span><br><span class="line">                return this.name</span><br><span class="line">            &#125;,</span><br><span class="line">            set(val) &#123;</span><br><span class="line">                this.edit(val)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        edit(name) &#123;</span><br><span class="line">            this.$http.put(&apos;/name&apos;, &#123; name &#125;).then(data =&gt; &#123;</span><br><span class="line">                this.name = name</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    created() &#123;</span><br><span class="line">        this.$http.get(&apos;/name&apos;).then(data =&gt; &#123;</span><br><span class="line">            this.name = data.name</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="释放资源"><a href="#释放资源" class="headerlink" title="释放资源"></a>释放资源</h3><p>善用 destory 释放原生事件、第三方组件、全局事件总线等。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import bus from &apos;event-bus&apos;</span><br><span class="line">import plugin from &apos;plugin&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">    // ...</span><br><span class="line">    created() &#123;</span><br><span class="line">        bus.$on(&apos;hello&apos;, this.hello) // 注册全局事件</span><br><span class="line">        window.addEventListener(&apos;resize&apos;, this.onResize) // DOM 事件</span><br><span class="line">        plugin.init() // 第三方组件初始化</span><br><span class="line">    &#125;,</span><br><span class="line">    destoryed() &#123;</span><br><span class="line">        bus.$off(&apos;hello&apos;, this.hello)</span><br><span class="line">        window.removeEventListener(&apos;resize&apos;, this.onResize)</span><br><span class="line">        plugin.destory()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h3><p>Vue 内置了许多常用修饰符可以让你少写几行代码，提高开发效率。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 输入字符串转数字 --&gt;</span><br><span class="line">&lt;input type=&quot;text&quot; v-model.number=&quot;value&quot;&gt;</span><br><span class="line">&lt;!-- 输入字符串去前后空格 --&gt;</span><br><span class="line">&lt;input type=&quot;text&quot; v-model.trim=&quot;value&quot;&gt;</span><br><span class="line">&lt;!-- 监听鼠标按键，支持 left, right, middle --&gt;</span><br><span class="line">&lt;button @click.left=&quot;onLeftClick&quot;&gt;点击鼠标左键&lt;/button&gt;</span><br><span class="line">&lt;button @click.right=&quot;onRightClick&quot;&gt;点击鼠标右键&lt;/button&gt;</span><br><span class="line">&lt;!-- 停止冒泡，阻止默认行为 --&gt;</span><br><span class="line">&lt;button @click.stop.prevent=&quot;doThis&quot;&gt;&lt;/button&gt;</span><br><span class="line">&lt;!-- 键盘按下确认键，支持 keycode 和键别名 --&gt;</span><br><span class="line">&lt;input @keyup.13=&quot;onEnter&quot;&gt;</span><br><span class="line">&lt;!-- 只执行一次事件 --&gt;</span><br><span class="line">&lt;button @click.once=&quot;doThis&quot;&gt;&lt;/button&gt;</span><br><span class="line">&lt;!-- 监听原生事件 --&gt;</span><br><span class="line">&lt;el-button @click.native=&quot;doThis&quot;&gt;&lt;/el-button&gt;</span><br></pre></td></tr></table></figure>
+<p>以上是一些常用的修饰符，更多用法可以去文档上找找。</p>
+<h3 id="数据请求"><a href="#数据请求" class="headerlink" title="数据请求"></a>数据请求</h3><p>切换路由请求数据时，一般都需要兼容两种视图打开方式：路由跳转和直接 URL 输入。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;</span><br><span class="line">    watch: &#123;</span><br><span class="line">        $route() &#123;</span><br><span class="line">            this.fetchData()</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    methods() &#123;</span><br><span class="line">        fetchData() &#123;</span><br><span class="line">            // 避免重复请求</span><br><span class="line">            if(this.isLoading) return</span><br><span class="line">            this.isLoading = true</span><br><span class="line">            // 请求数据</span><br><span class="line">            // ajax...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    created() &#123;</span><br><span class="line">        this.fetchData()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>路由跳转会触发 watch -&gt; $route，如果是未创建的组件还会触发 create，直接 URL 只会触发 created 钩子。一般在两个位置都执行数据请求，再通过判断避免重复请求，还可以利用 isLoading 标记做加载动画。如果使用了 keep-alive 组件，还需要考虑 activated 钩子。</p>
+<h3 id="减少嵌套层级"><a href="#减少嵌套层级" class="headerlink" title="减少嵌套层级"></a>减少嵌套层级</h3><p>组件即使未在 props 声明，也可以传递一些原生 DOM 属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- bad --&gt;</span><br><span class="line">&lt;div class=&quot;content-view&quot;&gt;</span><br><span class="line">    &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!-- good --&gt;</span><br><span class="line">&lt;router-view class=&quot;content-view&quot;&gt;&lt;/router-view&gt;</span><br></pre></td></tr></table></figure>
+<p>命名插槽中需要放置多个块时，可以利用 template 组件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- bad --&gt;</span><br><span class="line">&lt;my-component&gt;</span><br><span class="line">    &lt;div slot=&quot;hello&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;block1&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;block2&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/my-component&gt;</span><br><span class="line">&lt;!-- good --&gt;</span><br><span class="line">&lt;my-component&gt;</span><br><span class="line">    &lt;template slot=&quot;hello&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;block1&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;block2&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">&lt;/my-component&gt;</span><br></pre></td></tr></table></figure>
+<p>不管是内置组件还是自己的组件，有时候不需要多一层包裹去添加样式，反而因此增加了嵌套层级。</p>
+<h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><p>过滤器的最佳应用场景应该是值的转换，比如：Date 类型日期转字符串、货币、字符截断、markdown 等等。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 按长度截断文字，补...，中文 = 2</span><br><span class="line">const cnReg = /[\u4e00-\u9fa5]/</span><br><span class="line">Vue.filter(&apos;ellipsis&apos;, (str, len = 10) =&gt; &#123;</span><br><span class="line">    let i = 0</span><br><span class="line">    let j = 0</span><br><span class="line">    let ret = &apos;&apos;</span><br><span class="line">    const text = String(str).trim()</span><br><span class="line">    const max = text.length</span><br><span class="line">    while (j &lt; max &amp;&amp; i &lt; len) &#123;</span><br><span class="line">        const c = text.charAt(j)</span><br><span class="line">        ret += c</span><br><span class="line">        j += 1</span><br><span class="line">        i = cnReg.test(c) ? i + 2 : i + 1</span><br><span class="line">    &#125;</span><br><span class="line">    return ret === text ? text : `$&#123;ret&#125;...`</span><br><span class="line">&#125;)</span><br><span class="line">// 日期转相对时间</span><br><span class="line">Vue.filter(&apos;calendar&apos;, value =&gt; moment(value).calendar())</span><br></pre></td></tr></table></figure>
+<h3 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h3><ul>
+<li>布尔属性默认值为 false 可以省略</li>
+<li>数组最好声明默认值 []，保证数据请求成功前模版里的 v-for   不会出错</li>
+<li>对象也需要注意是否声明了默认值 {}，避免模版中使用 obj.xx 报错</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    props: &#123;</span><br><span class="line">        visible: Boolen, // 默认即为 false</span><br><span class="line">        data: Array,     // 需要进行非空判断</span><br><span class="line">        data2: &#123;         // 可安全使用 v-for</span><br><span class="line">            type: Array,</span><br><span class="line">            default: []</span><br><span class="line">        &#125;,</span><br><span class="line">        obj: Object,     // 需要进行非空判断</span><br><span class="line">        obj2: &#123;          // 可安全使用 obj.xx</span><br><span class="line">            type: Object,</span><br><span class="line">            default() &#123;</span><br><span class="line">                return &#123;&#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h3><p>如果模版中绑定了 obj.xx 时，需要注意 obj 是否是异步数据，默认值是否为 null。安全起见，可在组件最外层加 v-if 判断。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div v-if=&quot;!!obj&quot;&gt;</span><br><span class="line">        &lt;p&gt;&#123;&#123;obj.name&#125;&#125;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;&#123;&#123;obj.age&#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    data() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            obj: null</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h3><p>对于经常发生变化的一级、二级菜单导航，可以和路由数据结合起来，按模块划分，视图直接引用对应模块的路由数据来生成导航，减少维护成本。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// routes.js</span><br><span class="line">export const settingRoutes = []</span><br><span class="line">export const userRoutes = []</span><br><span class="line">export default [...settingRoutes, ...userRoutes]</span><br></pre></td></tr></table></figure>
+<p>菜单组件中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li v-for=&quot;item in menus&quot; :key=&quot;item.name&quot;&gt;</span><br><span class="line">            &lt;router-link :to=&quot;item&quot;&gt;&#123;&#123;item.text&#125;&#125;&lt;/router-link&gt;</span><br><span class="line">        &lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &#123; settingRoutes &#125; from &apos;../routes&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">    data() &#123;</span><br><span class="line">        menus: settingRoutes</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="继承和混合"><a href="#继承和混合" class="headerlink" title="继承和混合"></a>继承和混合</h3><p>用过ElementUI的同学，都知道其 Dialog 组件 是不支持垂直居中，只提供了一个top属性用于设置组件内容节点到顶部的距离。早期 1.x 版本时 Dialog 组件也不支持append-to-body。我们可以通过继承和混合来扩展这些需要的特性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// dialogEx.js</span><br><span class="line">import &#123; Dialog &#125; from &apos;element-ui&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">    name: &apos;ElDialogEx&apos;,</span><br><span class="line">    extends: Dialog,</span><br><span class="line">    props: &#123;</span><br><span class="line">        appendToBody: &#123;</span><br><span class="line">            // 把组件插入 body 下</span><br><span class="line">            type: Boolean,</span><br><span class="line">            default: true</span><br><span class="line">        &#125;,</span><br><span class="line">        center: Boolean // 设置垂直居中</span><br><span class="line">    &#125;,</span><br><span class="line">    computed: &#123;</span><br><span class="line">        sizeClass() &#123;</span><br><span class="line">            // 这个 sizeClass 计算属性是组件源码里就有的，这里是利用了类名支持字符串拼接的特性，在这个函数里增加了垂直居中的自定义类拼接</span><br><span class="line">            return `el-dialog--$&#123;this.size&#125;` + this.center ? &apos; dialog-center &apos; : &apos;&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted() &#123;</span><br><span class="line">        if (this.appendToBody) document.body.appendChild(this.$el)</span><br><span class="line">    &#125;,</span><br><span class="line">    beforeDestroy() &#123;</span><br><span class="line">        if (this.appendToBody) this.$el.parentNode.remove(this.$el)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>之后你又发现，在其他的一些组件中也需要appendToBody这个特性，那么就可以把相关的代码写成mixins。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// appendToBody.js</span><br><span class="line">export default &#123;</span><br><span class="line">    props: &#123;</span><br><span class="line">        appendToBody: &#123;</span><br><span class="line">            // 把组件插入 body 下</span><br><span class="line">            type: Boolean,</span><br><span class="line">            default: true</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted() &#123;</span><br><span class="line">        if (this.appendToBody) document.body.appendChild(this.$el)</span><br><span class="line">    &#125;,</span><br><span class="line">    beforeDestroy() &#123;</span><br><span class="line">        if (this.appendToBody) this.$el.parentNode.remove(this.$el)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在dialogEx组件可以写的更简单。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// dialogEx.js</span><br><span class="line">import &#123; Dialog &#125; from &apos;element-ui&apos;</span><br><span class="line">import appendToBody from &apos;mixins/appendToBody&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">    name: &apos;ElDialogEx&apos;,</span><br><span class="line">    extends: Dialog,</span><br><span class="line">    mixins: [appendToBody],</span><br><span class="line">    props: &#123;</span><br><span class="line">        center: Boolean // 设置垂直居中</span><br><span class="line">    &#125;,</span><br><span class="line">    computed: &#123;</span><br><span class="line">        sizeClass() &#123;</span><br><span class="line">            // 这个 sizeClass 计算属性是组件源码里就有的，这里是利用了类名支持字符串拼接的特性，在这个函数里增加了垂直居中的自定义类拼接</span><br><span class="line">            return `el-dialog--$&#123;this.size&#125;` + this.center ? &apos; dialog-center &apos; : &apos;&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="第三方库的集成"><a href="#第三方库的集成" class="headerlink" title="第三方库的集成"></a>第三方库的集成</h3><p>第三方库一般是传统的基于 DOM 和原生 js。它们虽然写起来没有使用任何的代码模版，但出于作者的编程经验其实都符合了大众使用预期。</p>
+<p>任何一个库一般都会提供以下的接口：</p>
+<ul>
+<li>使用自定义配置初始化</li>
+<li>可访问的属性</li>
+<li>可调用的功能函数</li>
+<li>事件绑定</li>
+<li>良好的生命周期钩子</li>
+</ul>
+<blockquote>
+<p>如果没有足够的编程经验用原生 js 去写一个插件可能最后就是一团乱麻。这也是 Vue 等众多前端框架的作用，它们约束了一个模块的代码模版，提供了事件管理、生命周期运行、属性和函数的定义，使即使经验不足的人也能写出一个看得过去的模块。</p>
+</blockquote>
+<p>把第三方库转换为一个 Vue 组件，其实就是把这个库的接口挂到 Vue 组件对应的组件选项上去。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">import Lib from &apos;lib&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">    props: &#123;</span><br><span class="line">        options: Object</span><br><span class="line">    &#125;,</span><br><span class="line">    data() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            instance: null</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        doSomething(xxx) &#123;</span><br><span class="line">            // lib 的操作函数</span><br><span class="line">            // 外部使用 $refs 调用</span><br><span class="line">            this.instance.doSomething(xxx)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    computed: &#123;</span><br><span class="line">        libProp() &#123;</span><br><span class="line">            // lib 的可访问属性使用计算属性访问</span><br><span class="line">            // 外部使用 $refs 调用</span><br><span class="line">            return this.instance.prop</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    watch: &#123;</span><br><span class="line">        options(val) &#123;</span><br><span class="line">            // 监听配置更新，调用 lib 接口更新配置</span><br><span class="line">            if (val) this.instance.updateOptions(val)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted() &#123;</span><br><span class="line">        // mounted 或者 created 对应 lib 实例化并传入自定义配置</span><br><span class="line">        this.instance = new Lib(this.$el, this.options)</span><br><span class="line">        // lib 内的事件 $emit 出去，外部监听</span><br><span class="line">        this.instance.on(&apos;update&apos;, (...args) =&gt; &#123;</span><br><span class="line">            this.$emit(&apos;update&apos;, ...args)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    destroyed() &#123;</span><br><span class="line">        // lib 如果提供了 destroy 等销毁资源的函数一般都会对其内部的 DOM 事件解绑</span><br><span class="line">        this.instance.destroy()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>也可能你想把一个库变为一个 Vue 指令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import Lib from &apos;lib&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">    install(Vue, option = &#123;&#125;) &#123;</span><br><span class="line">        // 存放全局配置</span><br><span class="line">        const defaults = option</span><br><span class="line">        Vue.directive(&apos;my-directive&apos;, &#123;</span><br><span class="line">            bind(el, &#123; value &#125;) &#123;</span><br><span class="line">                // 当前配置混合全局配置</span><br><span class="line">                const options = Object.assign(&#123;&#125;, defaults, value)</span><br><span class="line">                const lib = new Lib(el, options)</span><br><span class="line">                el._libInstace = lib // 缓存 lib 实例</span><br><span class="line">            &#125;,</span><br><span class="line">            update(el, &#123; value &#125;, vnode) &#123;</span><br><span class="line">                // 更新 lib 配置</span><br><span class="line">                el._libInstace.setOptions(value)</span><br><span class="line">            &#125;,</span><br><span class="line">            unbind(el) &#123;</span><br><span class="line">                // 销毁 lib</span><br><span class="line">                el._libInstace.destroy()</span><br><span class="line">                delete el._libInstace</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>指令有着完善的生命周期钩子，但在数据管理上偏弱。一般用于单一功能的集成，或者只需要一次初始化的插件。</p>
+<blockquote>
+<p>指令中可通过 el 或 el.dataset 进行生命周期间的数据共享。</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    post.last_updated<time datetime="2018-04-17T12:43:31.362Z" itemprop="dateUpdated">2018-04-17 20:43:31</time>
+</span><br>
+
+
+        
+        以上言论 如有不足 多多原谅！
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="sanpang">
+            sanpang
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/04/17/4/&title=《Vue 的实践》 — sanpang&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/04/17/4/&title=《Vue 的实践》 — sanpang&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/17/4/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Vue 的实践》 — sanpang&url=http://yoursite.com/2018/04/17/4/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/17/4/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/04/18/5/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">如何解决0.1 +0.2===0.30000000000000004类问题	(转)</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/04/11/3/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【ES6系列】变量与块级作用域</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'true';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+<section class="comments" id="comments">
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script src="http://v2.uyan.cc/code/uyan.js?uid=true"></script>
+    <!-- UY END -->
+</section>
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>footer.license</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>sanpang &copy; 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/04/17/4/&title=《Vue 的实践》 — sanpang&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/04/17/4/&title=《Vue 的实践》 — sanpang&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/17/4/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Vue 的实践》 — sanpang&url=http://yoursite.com/2018/04/17/4/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/17/4/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/04/17/4/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=true&web_id=true')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
